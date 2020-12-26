@@ -1,0 +1,31 @@
+// Colors
+$base-text: #313131;
+
+// Break Points
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  color: $base-text;
+}
+
+h3,
+h4 {
+  font-weight: 400;
+  color: $base-text;
+}
+
+a {
+  text-decoration: none;
+  color: $base-text;
+}
