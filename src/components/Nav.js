@@ -1,39 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-//Style and Animation
+//  Style and Animation
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Nav = () => {
-  const [isToggled, setIsToggled] = useState(true);
-  const toggleHandler = () => {
-    setIsToggled(!isToggled);
-  };
+const navElements = [
+  { title: "home", url: "/" },
+  { title: "photography", url: "/photography" },
+  { title: "about", url: "/about" },
+  { title: "contact", url: "/contact" },
+];
+
+const Nav = ({ isToggled, toggleHandler }) => {
   return (
-    <Navigation>
-      <Link to="/">
-        <h1>john yoon</h1>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/photography">Photography</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-      <div class="toggle-button" onClick={toggleHandler}>
-        <Link to="/menu">
-          <span></span>
-          <span></span>
+    <div>
+      <Navigation>
+        {/* style={{ display: isToggled ? "none" : "flex" } */}
+        <Link to="/">
+          <h1>john yoon</h1>
         </Link>
-      </div>
-    </Navigation>
+        <ul>
+          {navElements.map((menu) => {
+            return (
+              <li>
+                <Link to={menu.url}>{menu.title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="toggle-button" onClick={toggleHandler}>
+          <button className={`burger ${isToggled ? "active" : ""}`}></button>
+        </div>
+      </Navigation>
+      <FullNav style={{ display: isToggled ? "grid" : "none" }}>
+        <div>
+          <ul>
+            {navElements.map((menu) => {
+              return (
+                <motion.li
+                  whileHover={{ scale: 1.1, transiton: { duration: 1 } }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={toggleHandler}
+                >
+                  <Link to={menu.url}>{menu.title}</Link>
+                </motion.li>
+              );
+            })}
+          </ul>
+        </div>
+      </FullNav>
+    </div>
   );
 };
 
@@ -41,39 +57,58 @@ const Navigation = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem 10rem 1rem 10rem;
+  /* padding: 3rem 10rem 1rem 10rem; */
+  padding: 0 clamp(1rem, 10%, 500px);
   width: 100%;
+  min-height: 10vh;
   ul {
     display: flex;
     list-style: none;
-    float: right;
     li {
       padding: 0rem 1.25rem;
       a {
         font-size: 1rem;
         font-weight: 700;
-        color: rgb(105, 105, 105);
+        color: #5e5e5e;
       }
+    }
+  }
+  .toggle-button {
+    display: none;
+  }
+  @media (max-width: 1024px) {
+    ul {
+      display: none;
+      position: relative;
     }
     .toggle-button {
       display: block;
     }
   }
-  @media (max-width: 1024px) {
-    padding: 2rem 5rem 1rem 5rem;
-    ul {
-      display: none;
-    }
-    .toggle-button {
-      display: block;
-      span {
-        height: 3px;
-        width: 30px;
-        margin: 6px;
-        display: block;
-        background: #333;
+`;
+
+const FullNav = styled.div`
+  /* display: none; */
+  place-content: center;
+  z-index: 10;
+  min-height: 80vh;
+  top: -10%;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    li {
+      padding: 0.5rem;
+      a {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #5e5e5e;
       }
     }
+  }
+  .burger {
+    position: relative;
   }
 `;
 
