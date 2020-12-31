@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
@@ -22,12 +23,12 @@ const Home = () => {
   );
 };
 
-const StyledHome = styled.div`
+const StyledHome = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 80vh;
   padding-left: clamp(30px, 10vw, 1500px);
   padding-right: clamp(30px, 10vw, 1500px);
   text-align: center;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //  Style and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { menuAnimation } from "../styles/animations";
 
 const navElements = [
   { title: "home", url: "/" },
@@ -15,7 +16,6 @@ const Nav = ({ isToggled, toggleHandler }) => {
   return (
     <div>
       <Navigation>
-        {/* style={{ display: isToggled ? "none" : "flex" } */}
         <Link to="/">
           <h1>john yoon</h1>
         </Link>
@@ -32,7 +32,13 @@ const Nav = ({ isToggled, toggleHandler }) => {
           <button className={`burger ${isToggled ? "active" : ""}`}></button>
         </div>
       </Navigation>
-      <FullNav style={{ display: isToggled ? "grid" : "none" }}>
+      <FullNav
+        style={{ display: isToggled ? "grid" : "none" }}
+        variants={menuAnimation}
+        initial="initial"
+        animate={isToggled ? "animate" : ""}
+        exit="exit"
+      >
         <div>
           <ul>
             {navElements.map((menu) => {
@@ -42,7 +48,9 @@ const Nav = ({ isToggled, toggleHandler }) => {
                   whileTap={{ scale: 0.9 }}
                   onClick={toggleHandler}
                 >
-                  <Link to={menu.url}>{menu.title}</Link>
+                  <Link to={menu.url}>
+                    <h3>{menu.title}</h3>
+                  </Link>
                 </motion.li>
               );
             })}
@@ -87,12 +95,11 @@ const Navigation = styled.nav`
   }
 `;
 
-const FullNav = styled.div`
+const FullNav = styled(motion.div)`
   /* display: none; */
   place-content: center;
   z-index: 10;
   min-height: 80vh;
-  top: -10%;
   ul {
     display: flex;
     flex-direction: column;
@@ -100,15 +107,12 @@ const FullNav = styled.div`
     list-style: none;
     li {
       padding: 0.5rem;
-      a {
-        font-size: 2rem;
+      h3 {
+        font-size: clamp(1.5rem, 10vw, 2.5rem);
         font-weight: 700;
         color: #5e5e5e;
       }
     }
-  }
-  .burger {
-    position: relative;
   }
 `;
 
