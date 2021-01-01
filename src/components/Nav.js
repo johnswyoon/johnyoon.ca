@@ -9,7 +9,6 @@ const navElements = [
   { title: "home", url: "/" },
   { title: "photography", url: "/photography" },
   { title: "about", url: "/about" },
-  { title: "contact", url: "/contact" },
 ];
 
 const Nav = ({ isToggled, toggleHandler }) => {
@@ -84,7 +83,7 @@ const Navigation = styled.nav`
   .toggle-button {
     display: none;
   }
-  @media (max-width: 1024px) {
+  @media screen and (max-width: 1024px) {
     ul {
       display: none;
       position: relative;
