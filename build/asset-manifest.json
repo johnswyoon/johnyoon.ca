@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.906c2ecf.chunk.css",
+    "main.js": "/static/js/main.d80998f9.chunk.js",
+    "main.js.map": "/static/js/main.d80998f9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0fc7afb1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0fc7afb1.js.map",
+    "static/js/2.90023862.chunk.js": "/static/js/2.90023862.chunk.js",
+    "static/js/2.90023862.chunk.js.map": "/static/js/2.90023862.chunk.js.map",
+    "static/js/3.7da897fc.chunk.js": "/static/js/3.7da897fc.chunk.js",
+    "static/js/3.7da897fc.chunk.js.map": "/static/js/3.7da897fc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.906c2ecf.chunk.css.map": "/static/css/main.906c2ecf.chunk.css.map",
+    "static/js/2.90023862.chunk.js.LICENSE.txt": "/static/js/2.90023862.chunk.js.LICENSE.txt",
+    "static/media/dooly.3f0fdfa2.JPEG": "/static/media/dooly.3f0fdfa2.JPEG",
+    "static/media/every-letter-i-sent-you.0f9f8173.jpg": "/static/media/every-letter-i-sent-you.0f9f8173.jpg",
+    "static/media/good-kid-maad-city.b4b334c4.jpg": "/static/media/good-kid-maad-city.b4b334c4.jpg",
+    "static/media/room-for-squares.f0b2c3e3.jpg": "/static/media/room-for-squares.f0b2c3e3.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0fc7afb1.js",
+    "static/js/2.90023862.chunk.js",
+    "static/css/main.906c2ecf.chunk.css",
+    "static/js/main.d80998f9.chunk.js"
+  ]
+}
