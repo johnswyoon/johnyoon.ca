@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
-import { genreList } from "../photoInfo";
+import { genreList } from "../photos/photoInfo";
 
 // const genreList = [
 //   {
@@ -133,7 +133,7 @@ const ImageGrid = () => {
       <div className="photo-grid">
         {current.images.map((photo) => {
           return (
-            <div className={photo.type}>
+            <div className={`card ${photo.type}`}>
               <img src={photo.url} alt={photo.alt} />
             </div>
           );

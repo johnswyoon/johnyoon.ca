@@ -254,7 +254,7 @@ const Songs = styled.div`
     height: 200px;
     margin: 1rem;
     border-radius: 5%;
-    box-shadow: 0 0px 50px -20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0px 10px -3px rgba(0, 0, 0, 0.4);
   }
   li {
     list-style-type: none;

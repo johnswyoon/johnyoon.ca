@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const photoGenre = [
-  { name: "automotive", image: "", url: "/photography/automotive" },
   { name: "street", image: "", url: "/photography/street" },
   { name: "portrait", image: "", url: "/photography/portrait" },
   { name: "architecture", image: "", url: "/photography/architecture" },
+  { name: "automotive", image: "", url: "/photography/automotive" },
 ];
 
 const Photography = () => {
