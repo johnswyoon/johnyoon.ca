@@ -112,7 +112,7 @@ const About = () => {
         <div className="intro-text">
           <p>
             I'm a 2nd Year Computer Engineering student at the University of
-            Waterloo. I am also a photographer based in Canada, interested in
+            Waterloo . I am also a photographer based in Canada, interested in
             portrait, street, and automotive photography.
           </p>
           <p>
@@ -131,9 +131,9 @@ const About = () => {
         </div>
         <Songs>
           <h3>Currently Listening To</h3>
-          {songList.map((song) => {
-            return (
-              <ul>
+          <ul>
+            {songList.map((song) => {
+              return (
                 <motion.li
                   whileHover={{ scale: 1.05, transiton: { duration: 10 } }}
                   whileTap={{ scale: 0.95 }}
@@ -156,9 +156,9 @@ const About = () => {
                     </div>
                   </a>
                 </motion.li>
-              </ul>
-            );
-          })}
+              );
+            })}
+          </ul>
         </Songs>
       </TextColumn>
     </StyledAbout>
@@ -202,6 +202,9 @@ const TextColumn = styled.div`
   flex-direction: column;
   p {
     padding-bottom: 1.5rem;
+  }
+  p:last-child {
+    padding-bottom: 0rem;
   }
   @media screen and (max-width: 1024px) {
     padding: 0rem clamp(1rem, 5vw, 5rem);
@@ -250,6 +253,7 @@ const Songs = styled.div`
     width: 200px;
     height: 200px;
     margin: 1rem;
+    border-radius: 5%;
     box-shadow: 0 0px 50px -20px rgba(0, 0, 0, 0.4);
   }
   li {

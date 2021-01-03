@@ -5,11 +5,13 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Photography from "./pages/Photography";
 import About from "./pages/About";
+import ImageGrid from "./components/ImageGrid";
 // Styles and Animations
 import "./styles/app.scss";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function App() {
+  // Menu
   const [isToggled, setIsToggled] = useState(false);
   const toggleHandler = () => {
     setIsToggled(!isToggled);
@@ -21,8 +23,9 @@ function App() {
         <AnimatePresence>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/photography" component={Photography} />
-            <Route path="/about" component={About} />
+            <Route exact path="/photography" component={Photography} />
+            <Route exact path="/about" component={About} />
+            <Route path="/photography/:genre" component={ImageGrid} />
           </Switch>
         </AnimatePresence>
       )}

@@ -36,7 +36,6 @@ const StyledHome = styled(motion.div)`
     font-size: clamp(40px, 5vw, 70px);
   }
   p {
-    width: clamp(300px, 60%, 1000px);
   }
 `;
 
