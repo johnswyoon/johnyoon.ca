@@ -18,7 +18,7 @@ const Photography = () => {
           {photoGenre.map((genre) => {
             return (
               <motion.li
-                whileHover={{ scale: 1.1, transiton: { duration: 1 } }}
+                whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Link to={genre.url}>
@@ -38,7 +38,7 @@ const StyledPhotography = styled(motion.div)`
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 70vh;
+  min-height: 85vh;
   h2 {
     font-size: 2rem;
     letter-spacing: 4px;

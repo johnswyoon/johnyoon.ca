@@ -43,7 +43,7 @@ const Nav = ({ isToggled, toggleHandler }) => {
             {navElements.map((menu) => {
               return (
                 <motion.li
-                  whileHover={{ scale: 1.1, transiton: { duration: 1 } }}
+                  whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.9 }}
                   onClick={toggleHandler}
                 >

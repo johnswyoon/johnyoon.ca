@@ -144,7 +144,7 @@ const ImageGrid = () => {
 };
 
 const StyledImage = styled(motion.div)`
-  padding: 2rem clamp(2rem, 20vw, 50rem);
+  padding: 3rem clamp(2rem, 20vw, 50rem);
   @media screen and (max-width: 1600px) {
     padding: 2rem 10rem;
   }
@@ -152,10 +152,10 @@ const StyledImage = styled(motion.div)`
     padding: 2rem 5rem;
   }
   @media screen and (max-width: 600px) {
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1.5rem;
   }
   @media screen and (max-width: 350px) {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
   text-align: center;
   .photo-grid {

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Photography from "./pages/Photography";
 import About from "./pages/About";
 import ImageGrid from "./components/ImageGrid";
+import Footer from "./components/Footer";
 // Styles and Animations
 import "./styles/app.scss";
 import { AnimatePresence, motion } from "framer-motion";
@@ -17,7 +18,7 @@ function App() {
     setIsToggled(!isToggled);
   };
   return (
-    <div>
+    <>
       <Nav isToggled={isToggled} toggleHandler={toggleHandler} />
       {!isToggled && ( // when mobile menu is toggled, do not show any page
         <AnimatePresence>
@@ -29,7 +30,8 @@ function App() {
           </Switch>
         </AnimatePresence>
       )}
-    </div>
+      {/* <Footer /> */}
+    </>
   );
 }
 

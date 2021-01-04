@@ -47,7 +47,7 @@ const songList = [
   },
   {
     title: "Now Or Never",
-    album: "good kid, m.A.A.d city (Deluxe Version)",
+    album: "good kid, m.A.A.d city",
     artist: "Kendrick Lamar",
     image: kendrick,
     url:
@@ -65,7 +65,7 @@ const songList = [
 
 const About = () => {
   return (
-    <StyledAbout className="container">
+    <StyledAbout>
       <SocialColumn>
         <img
           id="profile-pic"
@@ -78,7 +78,7 @@ const About = () => {
             {socialList.map((social) => {
               return (
                 <motion.li
-                  whileHover={{ scale: 1.05, transiton: { duration: 10 } }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <a href={social.url} target="_blank">
@@ -135,7 +135,7 @@ const About = () => {
             {songList.map((song) => {
               return (
                 <motion.li
-                  whileHover={{ scale: 1.05, transiton: { duration: 10 } }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <a href={song.url} target="_blank">

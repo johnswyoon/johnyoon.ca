@@ -12,7 +12,13 @@ const Home = () => {
         <p>A visual collection of my creative process.</p>
         <Link to="/photography">
           <em>
-            <p id="call-to-action">view portfolio</p>
+            <motion.p
+              id="call-to-action"
+              whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
+              whileTap={{ scale: 0.9 }}
+            >
+              view portfolio
+            </motion.p>
           </em>
         </Link>
       </HeroText>
@@ -28,8 +34,8 @@ const StyledHome = styled(motion.div)`
   margin: auto;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  max-width: 50vw;
+  min-height: 90vh;
+  max-width: 80vw;
   h2 {
     font-size: clamp(40px, 5vw, 70px);
   }
@@ -38,6 +44,7 @@ const StyledHome = styled(motion.div)`
     margin-bottom: 2.5rem;
   }
   #call-to-action {
+    display: inline-block;
     text-decoration: underline;
     margin-bottom: 0;
   }
@@ -64,7 +71,7 @@ const HeroImage = styled.div`
   @media screen and (max-width: 1024px) {
     margin-left: 0;
     img {
-      width: 250px;
+      width: 300px;
       margin-top: 1rem;
     }
   }
