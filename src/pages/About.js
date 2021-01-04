@@ -171,7 +171,7 @@ const StyledAbout = styled.div`
   margin: auto;
   h2 {
     /* font-size: 3.5rem; */
-    font-size: clamp(40px, 5vw, 3.5rem);
+    font-size: clamp(40px, 4vw, 3.25rem);
     padding-top: 1rem;
     padding-bottom: 2rem;
   }
@@ -183,8 +183,8 @@ const StyledAbout = styled.div`
     padding: 3rem 0rem 1rem 0rem;
   }
   p {
-    font-size: 1.25rem;
-    line-height: 2rem;
+    font-size: 1.15rem;
+    line-height: 1.75rem;
   }
   @media screen and (max-width: 1024px) {
     flex-direction: column;
@@ -192,7 +192,7 @@ const StyledAbout = styled.div`
     justify-content: center;
     padding: 1rem 2rem;
     h2 {
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
   }
 `;
@@ -261,7 +261,7 @@ const Songs = styled.div`
     a {
       display: flex;
       p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
     }
   }

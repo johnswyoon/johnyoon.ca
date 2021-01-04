@@ -172,9 +172,11 @@ const StyledImage = styled(motion.div)`
       height: 100%;
       width: 100%;
       object-fit: cover;
+      border-radius: 15px;
     }
   }
   @media screen and (min-width: 600px) {
+    // collapse below 600px
     .photo-grid {
       grid-auto-rows: 240px;
     }
@@ -192,13 +194,16 @@ const StyledImage = styled(motion.div)`
 `;
 
 const PhotoText = styled(motion.div)`
-  padding-bottom: 1rem;
+  padding-bottom: 3rem;
   h2 {
     font-size: clamp(40px, 3vw, 70px);
     margin-bottom: 1rem;
   }
   p {
     font-size: 1.25rem;
+  }
+  @media screen and (max-width: 600px) {
+    padding-bottom: 1rem;
   }
 `;
 

@@ -1,41 +1,72 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import memoji from "../assets/img/memoji.jpg";
 
 const Home = () => {
   return (
     <StyledHome>
-      <h2>Hello Friends</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum assumenda
-        officiis neque maxime rerum qui aliquam molestiae pariatur? Repellat
-        fugit, alias unde mollitia nobis fugiat quas aliquam placeat dicta est,
-        tempora sit non ullam maxime ipsam illo pariatur, suscipit laborum
-        laudantium incidunt id voluptas dignissimos temporibus possimus. Enim
-        id, quidem ab culpa facilis dignissimos nesciunt consequatur nostrum?
-        Non dicta placeat aliquam est dolores eum dolorum quas reprehenderit
-        unde dolor, nisi mollitia nobis quidem expedita ullam molestias, hic
-        repellendus voluptates illum? Explicabo odit doloremque eius corrupti
-        modi, laborum porro totam optio sed quos itaque voluptatem neque,
-        accusantium velit, officiis eum atque?
-      </p>
+      <HeroText>
+        <h2>john yoon</h2>
+        <p>A visual collection of my creative process.</p>
+        <Link to="/photography">
+          <em>
+            <p id="call-to-action">view portfolio</p>
+          </em>
+        </Link>
+      </HeroText>
+      <HeroImage>
+        <img src={memoji} alt="John Yoon's Apple Memoji" />
+      </HeroImage>
     </StyledHome>
   );
 };
 
 const StyledHome = styled(motion.div)`
   display: flex;
+  margin: auto;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   min-height: 80vh;
-  padding-left: clamp(30px, 10vw, 1500px);
-  padding-right: clamp(30px, 10vw, 1500px);
-  text-align: center;
+  max-width: 50vw;
   h2 {
     font-size: clamp(40px, 5vw, 70px);
   }
   p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  #call-to-action {
+    text-decoration: underline;
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    min-width: 100%;
+    padding: 3rem 2rem;
+  }
+`;
+
+const HeroText = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const HeroImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5rem;
+  img {
+    width: 350px;
+  }
+  @media screen and (max-width: 1024px) {
+    margin-left: 0;
+    img {
+      width: 250px;
+      margin-top: 1rem;
+    }
   }
 `;
 

@@ -16,7 +16,7 @@ const Nav = ({ isToggled, toggleHandler }) => {
     <div>
       <Navigation>
         <Link to="/">
-          <h1>john yoon</h1>
+          <h1>ㅅㅇ</h1>
         </Link>
         <ul>
           {navElements.map((menu) => {
@@ -68,6 +68,9 @@ const Navigation = styled.nav`
   padding: 0 clamp(1rem, 10%, 500px);
   width: 100%;
   min-height: 10vh;
+  h1 {
+    font-size: 1.75rem;
+  }
   ul {
     display: flex;
     list-style: none;
