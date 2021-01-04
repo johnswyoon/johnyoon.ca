@@ -112,7 +112,7 @@ const About = () => {
         <div className="intro-text">
           <p>
             I'm a 2nd Year Computer Engineering student at the University of
-            Waterloo . I am also a photographer based in Canada, interested in
+            Waterloo. I am also a photographer based in Canada, interested in
             portrait, street, and automotive photography.
           </p>
           <p>

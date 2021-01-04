@@ -7,7 +7,7 @@ export const genreList = [
   {
     id: "automotive",
     title: "Automotive",
-    description: "A Collection of Cars",
+    description: "A Collection of Cars I Encounter",
     images: automotive,
   },
   {
@@ -19,7 +19,7 @@ export const genreList = [
   {
     id: "portrait",
     title: "Portraits",
-    description: "Capturing the personality of people around me",
+    description: "Capturing the personalities of people around me",
     images: portraits,
   },
   {

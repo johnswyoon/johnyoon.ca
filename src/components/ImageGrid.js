@@ -192,9 +192,10 @@ const StyledImage = styled(motion.div)`
 `;
 
 const PhotoText = styled(motion.div)`
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   h2 {
     font-size: clamp(40px, 3vw, 70px);
+    margin-bottom: 1rem;
   }
   p {
     font-size: 1.25rem;
