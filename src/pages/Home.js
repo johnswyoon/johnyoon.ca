@@ -34,7 +34,7 @@ const StyledHome = styled(motion.div)`
   margin: auto;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 80vh;
   max-width: 80vw;
   h2 {
     font-size: clamp(40px, 5vw, 70px);
