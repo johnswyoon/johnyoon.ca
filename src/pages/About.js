@@ -67,11 +67,7 @@ const About = () => {
   return (
     <StyledAbout>
       <SocialColumn>
-        <img
-          id="profile-pic"
-          src={profilepic}
-          alt="john yoon profile picture"
-        />
+        <img id="profile-pic" src={profilepic} alt="john yoon profile" />
         <h3>connect with me</h3>
         <div id="social">
           <ul>
@@ -169,6 +165,7 @@ const StyledAbout = styled.div`
   display: flex;
   max-width: 1200px;
   margin: auto;
+  padding: 1rem 2rem;
   h2 {
     /* font-size: 3.5rem; */
     font-size: clamp(40px, 4vw, 3.25rem);
@@ -190,7 +187,6 @@ const StyledAbout = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem;
     h2 {
       margin-top: 3rem;
     }
