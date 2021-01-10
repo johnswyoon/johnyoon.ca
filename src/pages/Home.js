@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import memoji from "../assets/img/memoji.jpg";
+import memoji from "../assets/img/memoji.png";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
           <em>
             <motion.p
               id="call-to-action"
-              whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
+              whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
               whileTap={{ scale: 0.9 }}
             >
               view portfolio
@@ -23,7 +23,12 @@ const Home = () => {
         </Link>
       </HeroText>
       <HeroImage>
-        <img src={memoji} alt="John Yoon's Apple Memoji" />
+        <motion.img
+          src={memoji}
+          alt="John Yoon's Apple Memoji"
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9 }}
+        />
       </HeroImage>
     </StyledHome>
   );
@@ -66,12 +71,12 @@ const HeroImage = styled.div`
   align-items: center;
   margin-left: 5rem;
   img {
-    width: 350px;
+    width: 400px;
   }
   @media screen and (max-width: 1024px) {
     margin-left: 0;
     img {
-      width: 300px;
+      width: 325px;
       margin-top: 1rem;
     }
   }

@@ -16,14 +16,22 @@ const Nav = ({ isToggled, toggleHandler }) => {
     <div>
       <Navigation>
         <Link to="/">
-          <h1>ㅅㅇ</h1>
+          <motion.h1
+            whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.9 }}
+          >
+            ㅅㅇ
+          </motion.h1>
         </Link>
         <ul>
           {navElements.map((menu) => {
             return (
-              <li>
+              <motion.li
+                whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <Link to={menu.url}>{menu.title}</Link>
-              </li>
+              </motion.li>
             );
           })}
         </ul>
