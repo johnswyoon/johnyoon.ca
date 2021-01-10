@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import profilepic from "../assets/img/dooly.JPEG";
+import profilepic from "../assets/img/profile.jpg";
 import igIcon from "../assets/icons/ig-100.png";
 import inIcon from "../assets/icons/in-100.png";
 import ghIcon from "../assets/icons/gh-100.png";
