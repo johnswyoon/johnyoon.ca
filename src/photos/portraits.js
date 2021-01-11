@@ -26,25 +26,25 @@ export const portraits = [
   {
     name: "david-lakehore-2020",
     url:
-      "https://res.cloudinary.com/jyoon/image/upload/v1609647810/portraits/DSC_8455_IG-min_rddbgz.jpg",
+      "https://res.cloudinary.com/jyoon/image/upload/q_auto:good/v1609647810/portraits/DSC_8455_IG-min_rddbgz.jpg",
     type: "card-tall",
   },
   {
     name: "daniel-phone-2020",
     url:
-      "https://res.cloudinary.com/jyoon/image/upload/v1609647810/portraits/DSC_7602_IG-min_k90hpg.jpg",
+      "https://res.cloudinary.com/jyoon/image/upload/q_auto:good/v1609647810/portraits/DSC_7602_IG-min_k90hpg.jpg",
     type: "card-tall",
   },
   {
     name: "david-utm-sitting-2020",
     url:
-      "https://res.cloudinary.com/jyoon/image/upload/v1609647806/portraits/DSC05000-min_eev4af.jpg",
+      "https://res.cloudinary.com/jyoon/image/upload/q_auto:good/v1609647806/portraits/DSC05000-min_eev4af.jpg",
     type: "card-tall",
   },
   {
     name: "friends-bench-montreal-2020",
     url:
-      "https://res.cloudinary.com/jyoon/image/upload/v1609649132/portraits/DSC_7602_IG2_edit-min_ujkxli.jpg",
+      "https://res.cloudinary.com/jyoon/image/upload/q_auto:good/v1609649132/portraits/DSC_7602_IG2_edit-min_ujkxli.jpg",
     type: "card-tall",
   },
 ];
