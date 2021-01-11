@@ -67,7 +67,13 @@ const About = () => {
   return (
     <StyledAbout>
       <SocialColumn>
-        <img id="profile-pic" src={profilepic} alt="john yoon profile" />
+        <motion.img
+          id="profile-pic"
+          src={profilepic}
+          alt="john yoon profile"
+          whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9 }}
+        />
         <h3>connect with me</h3>
         <div id="social">
           <ul>
@@ -107,7 +113,7 @@ const About = () => {
         <h2>Hi, I'm John</h2>
         <div className="intro-text">
           <p>
-            I'm a 2nd Year Computer Engineering student at the University of
+            I'm a 2️nd Year Computer Engineering student at the University of
             Waterloo. I am also a photographer based in Canada, interested in
             portrait, street, and automotive photography.
           </p>
@@ -116,13 +122,15 @@ const About = () => {
             projects and photography.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident,
-            repellat illum. Alias sapiente sit minima repellendus nemo expedita
-            sint maxime.
+            You may wonder what the <strong>"ㅅㅇ"</strong> symbols mean on the
+            top left! They are the Korean consonants that make up my name:{" "}
+            <strong>승원</strong>. My grandfather had chosen the meaning of my
+            name: <span>勝垣</span> meaning victory, wall. Before you ask... no,
+            I am not good at Korean.
           </p>
           <p>
-            Autem, impedit minima optio, recusandae eligendi error, magni ea
-            omnis aperiam nam reiciendis vero voluptas.
+            Below are some of the songs that I am currently listening to. I'm
+            really bad at making Spotify playlists. Someone help me!
           </p>
         </div>
         <Songs>
@@ -182,6 +190,7 @@ const StyledAbout = styled.div`
   p {
     font-size: 1.15rem;
     line-height: 1.75rem;
+    letter-spacing: 1px;
   }
   @media screen and (max-width: 1024px) {
     flex-direction: column;

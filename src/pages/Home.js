@@ -17,7 +17,7 @@ const Home = () => {
               whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
               whileTap={{ scale: 0.9 }}
             >
-              view portfolio
+              &gt; view portfolio &lt;
             </motion.p>
           </em>
         </Link>
