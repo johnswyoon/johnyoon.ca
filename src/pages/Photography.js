@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const photoGenre = [
-  { name: "street", image: "", url: "/photography/street" },
   { name: "portrait", image: "", url: "/photography/portrait" },
+  { name: "street", image: "", url: "/photography/street" },
   { name: "architecture", image: "", url: "/photography/architecture" },
   { name: "automotive", image: "", url: "/photography/automotive" },
 ];
