@@ -8,6 +8,7 @@ import ghIcon from "../assets/icons/gh-100.png";
 import johnMayer from "../assets/img/albums/room-for-squares.jpg";
 import kendrick from "../assets/img/albums/good-kid-maad-city.jpg";
 import yerin from "../assets/img/albums/every-letter-i-sent-you.jpg";
+import moon from "../assets/img/albums/moonology.jpg";
 
 const socialList = [
   {
@@ -60,6 +61,14 @@ const songList = [
     image: yerin,
     url:
       "https://open.spotify.com/track/0WZhf0isd4av5qlFfKknC3?si=fktTdj1jRjiu19iAedD0RA",
+  },
+  {
+    title: "Notice",
+    album: "Moonology",
+    artist: "Jen Moon",
+    image: moon,
+    url:
+      "https://open.spotify.com/track/6fWOxPnGBWPypiMAE9UaKA?si=IajIBQkKRtSokr2yn55BJg",
   },
 ];
 
@@ -129,8 +138,9 @@ const About = () => {
             I am not good at Korean.
           </p>
           <p>
-            Below are some of the songs that I am currently listening to. I'm
-            really bad at making Spotify playlists. Someone help me!
+            Below are some of the songs that I am currently listening to. You
+            guys might know the first 3 albums, but you HAVE to listen to Jen
+            Moon. She's an up and coming artist from Toronto!
           </p>
         </div>
         <Songs>
