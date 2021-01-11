@@ -53,7 +53,7 @@ const StyledImage = styled(motion.div)`
     display: grid;
     justify-items: center;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   .card {
     display: flex;
