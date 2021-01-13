@@ -280,7 +280,7 @@ const Songs = styled.div`
       }
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 600px) {
     h3 {
       text-align: center;
     }
