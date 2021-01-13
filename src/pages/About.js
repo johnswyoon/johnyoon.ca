@@ -33,7 +33,6 @@ const socialList = [
   },
 ];
 const gearList = [
-  { name: "macbook pro 16", url: "" },
   { name: "sony a6000", url: "" },
   { name: "sigma 30mm f/1.4", url: "" },
   { name: "sony 28-70mm f/3.5-5.6", url: "" },
@@ -135,13 +134,13 @@ const About = () => {
             You may wonder what the <strong>"ㅅㅇ"</strong> symbols mean on the
             top left! They are the Korean consonants that make up my name:{" "}
             <strong>승원</strong>. My grandfather had chosen the meaning of my
-            name: <span>勝垣</span> meaning victory, wall. Before you ask... no,
-            I am not good at Korean.
+            name: <strong>勝垣</strong> meaning victory, wall. Before you ask...
+            no, I am not good at Korean.
           </p>
           <p>
-            Below are some of the songs that I am currently listening to. You
-            guys might know the first 3 albums, but you HAVE to listen to Jen
-            Moon. She's an up and coming artist from Toronto!
+            Below are some of the songs that I am currently listening to. Take a
+            listen to Moonology by Jen Moon. She's an up and coming artist from
+            Toronto!
           </p>
         </div>
         <Songs>
