@@ -36,6 +36,7 @@ const gearList = [
   { name: "macbook pro 16", url: "" },
   { name: "sony a6000", url: "" },
   { name: "sigma 30mm f/1.4", url: "" },
+  { name: "sony 28-70mm f/3.5-5.6", url: "" },
 ];
 const songList = [
   {
@@ -44,7 +45,7 @@ const songList = [
     artist: "John Mayer",
     image: johnMayer,
     url:
-      "https://open.spotify.com/track/0WZhf0isd4av5qlFfKknC3?si=fy6OG2clRW2Fq8ezZ49nkQ",
+      "https://open.spotify.com/track/6Vecwo7AHst9V2CE3kmwr0?si=lfRjseB3QP2Cf3pYnPL3Ag",
   },
   {
     title: "Now Or Never",
