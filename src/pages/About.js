@@ -40,7 +40,7 @@ const gearList = [
 const songList = [
   {
     title: "No Such Thing",
-    album: "Room of Squares",
+    album: "Room for Squares",
     artist: "John Mayer",
     image: johnMayer,
     url:
