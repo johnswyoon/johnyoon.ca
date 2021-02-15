@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Photography from "./pages/Photography";
+import Blog from "./pages/Blog";
 import About from "./pages/About";
 import ImageGrid from "./components/ImageGrid";
 import Footer from "./components/Footer";
@@ -25,6 +26,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/photography" component={Photography} />
+            <Route exact path="/blog" component={Blog} />
             <Route exact path="/about" component={About} />
             <Route path="/photography/:genre" component={ImageGrid} />
           </Switch>

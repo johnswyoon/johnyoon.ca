@@ -8,6 +8,7 @@ import { menuAnimation } from "../styles/animations";
 const navElements = [
   { title: "home", url: "/" },
   { title: "photography", url: "/photography" },
+  { title: "blog", url: "/blog" },
   { title: "about", url: "/about" },
 ];
 

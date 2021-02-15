@@ -12,7 +12,6 @@ const ImageGrid = () => {
       current = genreList[i];
     }
   }
-  console.log(current);
   return (
     <StyledImage>
       <PhotoText>
