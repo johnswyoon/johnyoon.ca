@@ -38,8 +38,7 @@ const Blog = () => {
 const StyledBlog = styled.div`
   display: flex;
   flex-direction: column;
-  /* max-width: 1200px; */
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 5rem 2rem;
   h3 {
     text-align: center;
     font-size: clamp(1.75rem, 5vw, 2.5rem);
@@ -58,9 +57,14 @@ const StyledPosts = styled.div`
   display: grid;
   justify-content: center;
   gap: 3rem;
+  //max 3 columns when above 1600px, auto if less
   grid-template-columns: repeat(auto-fill, 400px);
   @media screen and (min-width: 1600px) {
     grid-template-columns: repeat(3, 400px);
+  }
+  // image size changes when on mobile (<600px)
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, 300px);
   }
 `;
 
@@ -73,6 +77,13 @@ const StyledPost = styled.div`
     height: 300px;
     object-fit: cover;
     padding-bottom: 1rem;
+  }
+  @media screen and (max-width: 600px) {
+    width: 300px;
+    img {
+      width: 300px;
+      height: 225px;
+    }
   }
 `;
 
