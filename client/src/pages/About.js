@@ -91,8 +91,9 @@ const About = () => {
                 <motion.li
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95 }}
+                  key={social.url}
                 >
-                  <a href={social.url} target="_blank">
+                  <a href={social.url} target="_blank" rel="noreferrer">
                     {social.image && (
                       <img src={social.image} alt={social.name} />
                     )}
@@ -108,8 +109,11 @@ const About = () => {
           <ul>
             {gearList.map((gear) => {
               return (
-                <li>
-                  <a style={{ justifyContent: "center", cursor: "default" }}>
+                <li key={gear.name}>
+                  <a
+                    src={gear.url}
+                    style={{ justifyContent: "center", cursor: "default" }}
+                  >
                     <p>{gear.name}</p>
                   </a>
                 </li>
@@ -151,6 +155,7 @@ const About = () => {
                 <motion.li
                   whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95 }}
+                  key={song.title}
                 >
                   <a href={song.url} target="_blank">
                     <img

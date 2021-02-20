@@ -53,7 +53,6 @@ router.get("/", async (req, res) => {
 router.get("/:slug", async (req, res) => {
   try {
     const post = await Post.findOne({ slug: req.params.slug });
-    console.log(post);
     if (!post) {
       return res.redirect("localhost:3000/blog");
     }

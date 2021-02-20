@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ReactMarkdown from "react-markdown";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const getPosts = async () => {
-    const postsArray = await axios.get("http://localhost:3001/api/posts");
-    setPosts(postsArray.data);
+    const res = await axios.get("http://localhost:3001/api/posts");
+    setPosts(res.data);
   };
   useEffect(() => {
     getPosts();
@@ -19,15 +19,17 @@ const Blog = () => {
       <StyledPosts>
         {posts.map((post) => {
           return (
-            <StyledPost>
-              <img src={post.thumbnail} alt={post.thumbbail} />
-              <h4>{post.title}</h4>
-              <StyledTags>
-                {post.tag.map((tagElement) => {
-                  return <button>{tagElement}</button>;
-                })}
-              </StyledTags>
-            </StyledPost>
+            <Link to={`/blog/${post.slug}`}>
+              <StyledPost>
+                <img src={post.thumbnail} alt={post.thumbbail} />
+                <h4>{post.title}</h4>
+                <StyledTags>
+                  {post.tag.map((tagElement) => {
+                    return <button>{tagElement}</button>;
+                  })}
+                </StyledTags>
+              </StyledPost>
+            </Link>
           );
         })}
       </StyledPosts>

@@ -20,6 +20,7 @@ const Photography = () => {
               <motion.li
                 whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                 whileTap={{ scale: 0.9 }}
+                key={photoGenre.name}
               >
                 <Link to={genre.url}>
                   <h2>{genre.name}</h2>

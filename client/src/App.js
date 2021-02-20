@@ -8,10 +8,10 @@ import Blog from "./pages/Blog";
 import Post from "./components/Post";
 import About from "./pages/About";
 import ImageGrid from "./components/ImageGrid";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 // Styles and Animations
 import "./styles/app.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   // Menu
