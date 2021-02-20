@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Photography from "./pages/Photography";
 import Blog from "./pages/Blog";
+import Post from "./components/Post";
 import About from "./pages/About";
 import ImageGrid from "./components/ImageGrid";
 import Footer from "./components/Footer";
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/photography" component={Photography} />
             <Route exact path="/blog" component={Blog} />
+            <Route exact path="/blog/:slug" component={Post} />
             <Route exact path="/about" component={About} />
             <Route path="/photography/:genre" component={ImageGrid} />
           </Switch>

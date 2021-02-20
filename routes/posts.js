@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const checkObjectId = require("../middleware/checkObjectId");
-
+const slugify = require("slugify");
+//Models
 const Post = require("../Models/PostModel");
 
 // @route   POST api/posts
@@ -10,14 +11,22 @@ const Post = require("../Models/PostModel");
 router.post("/", async (req, res) => {
   try {
     const { title, thumbnail, tag, text } = req.body;
+    const slug = slugify(title).toLowerCase();
     const newPost = new Post({
       title,
       thumbnail,
       tag,
       text,
+      slug,
     });
 
-    const post = await newPost.save();
+    // See if post title already exists
+    let post = await Post.find({ slug });
+    if (post) {
+      return res.status(400).json({ errors: [{ msg: "Post already exists" }] });
+    }
+
+    post = await newPost.save();
     res.json(post);
   } catch (error) {
     console.log(error.message);
@@ -38,13 +47,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route   GET api/posts/:id
-// @desc    Get post by id
+// @route   GET api/posts/:slug
+// @desc    Get post by slug id
 // @access  Public
-router.get("/:id", checkObjectId("id"), async (req, res) => {
+router.get("/:slug", async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id); // get id from url
-    if (!post) return res.status(404).json({ msg: "Post not found" });
+    const post = await Post.findOne({ slug: req.params.slug });
+    console.log(post);
+    if (!post) {
+      return res.redirect("localhost:3000/blog");
+    }
     res.send(post);
   } catch (err) {
     console.log(err.message);

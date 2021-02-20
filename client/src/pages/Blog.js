@@ -63,7 +63,7 @@ const StyledPosts = styled.div`
     grid-template-columns: repeat(3, 400px);
   }
   // image size changes when on mobile (<600px)
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 425px) {
     grid-template-columns: repeat(auto-fill, 300px);
   }
 `;
@@ -78,7 +78,7 @@ const StyledPost = styled.div`
     object-fit: cover;
     padding-bottom: 1rem;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 425px) {
     width: 300px;
     img {
       width: 300px;

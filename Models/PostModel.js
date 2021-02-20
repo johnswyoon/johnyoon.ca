@@ -21,6 +21,16 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  visible: {
+    type: Boolean,
+    required: true,
+    default: true,
+  },
 });
 
 module.exports = mongoose.model("post", PostSchema);
