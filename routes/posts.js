@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/authMiddleware");
 const checkObjectId = require("../middleware/checkObjectId");
 const slugify = require("slugify");
 //Models
@@ -8,7 +9,7 @@ const Post = require("../Models/PostModel");
 // @route   POST api/posts
 // @desc    Create a post
 // @access  Private
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   try {
     const { title, thumbnail, tag, text } = req.body;
     const slug = slugify(title).toLowerCase();
@@ -22,8 +23,8 @@ router.post("/", async (req, res) => {
 
     // See if post title already exists
     let post = await Post.find({ slug });
-    if (post) {
-      return res.status(400).json({ errors: [{ msg: "Post already exists" }] });
+    if (post.length > 0) {
+      return res.status(400).json({ msg: "Post already exists" });
     }
 
     post = await newPost.save();
@@ -66,7 +67,7 @@ router.get("/:slug", async (req, res) => {
 // @route   DELETE api/posts/:id
 // @desc    Delete post by id
 // @access  Private
-router.delete("/:id", checkObjectId("id"), async (req, res) => {
+router.delete("/:id", auth, checkObjectId("id"), async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
