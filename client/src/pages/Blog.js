@@ -6,7 +6,6 @@ import styled from "styled-components";
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const getPosts = async () => {
-    // const res = await axios.get("http://localhost:3001/api/posts");
     const res = await axios.get("/api/posts");
     setPosts(res.data);
   };

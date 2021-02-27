@@ -8,9 +8,6 @@ const Post = (props) => {
   const [post, setPost] = useState({});
 
   const getPost = async () => {
-    // const res = await axios.get(
-    //   `http://localhost:3001/api/posts/${props.match.params.slug}`
-    // );
     const res = await axios.get(`/api/posts/${props.match.params.slug}`);
     setPost(res.data);
   };
