@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdownWithHtml from "react-markdown/with-html";
 import dateformat from "dateformat";
 
 const Post = (props) => {
@@ -20,10 +20,10 @@ const Post = (props) => {
 
   return (
     <StyledPost>
-      <img src={post.thumbnail} />
+      <img id="thumbnail" src={post.thumbnail} />
       <h2>{post.title}</h2>
       <p>{dateformat(post.date, "longDate")}</p>
-      <ReactMarkdown>{post.text}</ReactMarkdown>
+      <ReactMarkdownWithHtml children={post.text} allowDangerousHtml />
     </StyledPost>
   );
 };
@@ -32,6 +32,8 @@ const StyledPost = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  #thumbnail {
+  }
   img {
     width: 600px;
     height: 400px;

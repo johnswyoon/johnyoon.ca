@@ -24,8 +24,8 @@ const Blog = () => {
                 <img src={post.thumbnail} alt={post.thumbbail} />
                 <h4>{post.title}</h4>
                 <StyledTags>
-                  {post.tag.map((tagElement) => {
-                    return <button>{tagElement}</button>;
+                  {post.tags.map((tag) => {
+                    return <button>{tag}</button>;
                   })}
                 </StyledTags>
               </StyledPost>

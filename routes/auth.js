@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
     // Check if user exists
     let user = await User.findOne({ username });
     if (!user) {
-      return res.status(400).json({ errors: [{ msg: "Invalid Username" }] });
+      return res.status(400).json({ msg: "Invalid Username" });
     }
 
     // If username exists, compare passowrds

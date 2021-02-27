@@ -8,15 +8,16 @@ const Post = require("../Models/PostModel");
 
 // @route   POST api/posts
 // @desc    Create a post
-// @access  Private
-router.post("/", auth, async (req, res) => {
+// @access  Public (for now)
+router.post("/", async (req, res) => {
   try {
-    const { title, thumbnail, tag, text } = req.body;
+    const { title, thumbnail, tags, text } = req.body;
     const slug = slugify(title).toLowerCase();
+    const tagArray = tags.split(",");
     const newPost = new Post({
       title,
       thumbnail,
-      tag,
+      tags: tagArray,
       text,
       slug,
     });
@@ -28,6 +29,7 @@ router.post("/", auth, async (req, res) => {
     }
 
     post = await newPost.save();
+    console.log(post);
     res.json(post);
   } catch (error) {
     console.log(error.message);

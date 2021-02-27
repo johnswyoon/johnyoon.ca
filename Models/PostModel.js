@@ -10,7 +10,7 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
-  tag: {
+  tags: {
     type: [String],
   },
   date: {
