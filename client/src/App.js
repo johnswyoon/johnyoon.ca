@@ -11,7 +11,7 @@ import Blog from "./pages/Blog";
 import Post from "./components/Post";
 import PostEditor from "./pages/PostEditor";
 //Admin
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 // Styles and Animations
 import "./styles/app.scss";
 import { AnimatePresence } from "framer-motion";
@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/blog-editor" component={PostEditor} />
             <Route exact path="/about" component={About} />
             <Route path="/photography/:genre" component={ImageGrid} />
-            <Route path="/login" component={Login} />
+            {/* <Route path="/login" component={Login} /> */}
           </Switch>
         </AnimatePresence>
       )}
