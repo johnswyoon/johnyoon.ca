@@ -6,10 +6,15 @@ import Home from "./pages/Home";
 import Photography from "./pages/Photography";
 import About from "./pages/About";
 import ImageGrid from "./components/ImageGrid";
-import Footer from "./components/Footer";
+//Blog
+import Blog from "./pages/Blog";
+import Post from "./components/Post";
+import PostEditor from "./pages/PostEditor";
+//Admin
+// import Login from "./pages/Login";
 // Styles and Animations
 import "./styles/app.scss";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   // Menu
@@ -25,12 +30,15 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/photography" component={Photography} />
+            <Route exact path="/blog" component={Blog} />
+            <Route exact path="/blog/:slug" component={Post} />
+            <Route exact path="/blog-editor" component={PostEditor} />
             <Route exact path="/about" component={About} />
             <Route path="/photography/:genre" component={ImageGrid} />
+            {/* <Route path="/login" component={Login} /> */}
           </Switch>
         </AnimatePresence>
       )}
-      {/* <Footer /> */}
     </>
   );
 }

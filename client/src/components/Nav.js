@@ -8,6 +8,7 @@ import { menuAnimation } from "../styles/animations";
 const navElements = [
   { title: "home", url: "/" },
   { title: "photography", url: "/photography" },
+  { title: "blog", url: "/blog" },
   { title: "about", url: "/about" },
 ];
 
@@ -29,6 +30,7 @@ const Nav = ({ isToggled, toggleHandler }) => {
               <motion.li
                 whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                 whileTap={{ scale: 0.9 }}
+                key={menu.title}
               >
                 <Link to={menu.url}>{menu.title}</Link>
               </motion.li>
@@ -53,6 +55,7 @@ const Nav = ({ isToggled, toggleHandler }) => {
                 <motion.li
                   whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.9 }}
+                  key={menu.title}
                   onClick={toggleHandler}
                 >
                   <Link to={menu.url}>
