@@ -31,8 +31,14 @@ const StyledPost = styled.div`
   flex-direction: column;
   align-items: center;
 
+  max-width: 750px;
+  margin: 1rem auto 3rem auto;
+
   //Padding
-  padding: 3rem clamp(2rem, 20vw, 50rem);
+  @media screen and (max-width: 900px) {
+    padding: 1rem clamp(2rem, 3vw, 50rem);
+  }
+  /* padding: 3rem clamp(2rem, 20vw, 50rem);
   @media screen and (max-width: 1600px) {
     padding: 2rem 10rem;
   }
@@ -44,7 +50,7 @@ const StyledPost = styled.div`
   }
   @media screen and (max-width: 350px) {
     padding: 1.5rem 1rem;
-  }
+  } */
 
   img {
     width: 600px;
@@ -89,6 +95,10 @@ const StyledPost = styled.div`
   p,
   ul {
     padding: 1rem 0rem;
+  }
+
+  a {
+    color: #4672db;
   }
 `;
 

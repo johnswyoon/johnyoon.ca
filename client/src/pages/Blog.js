@@ -15,7 +15,7 @@ const Blog = () => {
 
   return (
     <StyledBlog>
-      <h3>blog ting</h3>
+      <h3>Blogaz</h3>
       <StyledPosts>
         {posts.map((post) => {
           return (
