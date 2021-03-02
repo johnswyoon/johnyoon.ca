@@ -25,7 +25,11 @@ const Blog = () => {
                 <h4>{post.title}</h4>
                 <StyledTags>
                   {post.tags.map((tag) => {
-                    return <button>{tag}</button>;
+                    return (
+                      <button>
+                        <p>{tag}</p>
+                      </button>
+                    );
                   })}
                 </StyledTags>
               </StyledPost>
@@ -78,7 +82,9 @@ const StyledPost = styled.div`
     width: 400px;
     height: 300px;
     object-fit: cover;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
   @media screen and (max-width: 425px) {
     width: 300px;
@@ -94,8 +100,22 @@ const StyledTags = styled.div`
   flex-direction: row;
   width: 100%;
   button {
-    padding: 0.25rem;
+    padding: 0.3rem 0.6rem;
     margin: 0rem 0.5rem;
+    border-radius: 25%;
+
+    background: #444444;
+    border-radius: 40px;
+    color: white;
+    p {
+      background-color: transparent;
+    }
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
     &:first-child {
       margin-left: 0rem;
     }
