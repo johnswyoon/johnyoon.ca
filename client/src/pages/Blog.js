@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import dateformat from "dateformat";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -24,13 +25,18 @@ const Blog = () => {
                 <img src={post.thumbnail} alt={post.thumbbail} />
                 <h4>{post.title}</h4>
                 <StyledTags>
-                  {post.tags.map((tag) => {
-                    return (
-                      <button>
-                        <p>{tag}</p>
-                      </button>
-                    );
-                  })}
+                  <div className="tag-buttons">
+                    {post.tags.map((tag) => {
+                      return (
+                        <button>
+                          <p>{tag}</p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <p className="post-date">
+                    {dateformat(post.date, "longDate")}
+                  </p>
                 </StyledTags>
               </StyledPost>
             </Link>
@@ -54,7 +60,7 @@ const StyledBlog = styled.div`
   }
   h4 {
     font-size: clamp(1.5rem, 5vw, 1.75rem);
-    font-weight: 600;
+    font-weight: 500;
     padding-bottom: 0.5rem;
   }
 `;
@@ -98,6 +104,7 @@ const StyledPost = styled.div`
 const StyledTags = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   button {
     padding: 0.3rem 0.6rem;
@@ -119,6 +126,9 @@ const StyledTags = styled.div`
     &:first-child {
       margin-left: 0rem;
     }
+  }
+  .post-date {
+    /* float: right; */
   }
 `;
 

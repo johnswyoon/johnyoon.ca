@@ -38,19 +38,6 @@ const StyledPost = styled.div`
   @media screen and (max-width: 900px) {
     padding: 1rem clamp(2rem, 3vw, 50rem);
   }
-  /* padding: 3rem clamp(2rem, 20vw, 50rem);
-  @media screen and (max-width: 1600px) {
-    padding: 2rem 10rem;
-  }
-  @media screen and (max-width: 1200px) {
-    padding: 2rem 5rem;
-  }
-  @media screen and (max-width: 600px) {
-    padding: 1.5rem 1.5rem;
-  }
-  @media screen and (max-width: 350px) {
-    padding: 1.5rem 1rem;
-  } */
 
   img {
     width: 600px;
@@ -72,11 +59,12 @@ const StyledPost = styled.div`
     }
   }
 
-  #title {
-    padding: 1rem 0rem 0rem 0rem;
+  #thumbnail {
+    margin-bottom: 1.5rem;
   }
+
   #date {
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
   }
 
   h2 {
@@ -86,10 +74,15 @@ const StyledPost = styled.div`
     font-size: clamp(1.25rem, 5vw, 1.75rem);
     font-weight: 700;
   }
+  .paragraph {
+  }
+
   p,
   li {
     font-size: 1.15rem;
-    line-height: 1.75rem;
+    font-weight: 100;
+    /* line-height: 1.75rem; */
+    line-height: 2.25rem;
   }
 
   p,
@@ -99,6 +92,11 @@ const StyledPost = styled.div`
 
   a {
     color: #4672db;
+  }
+
+  hr {
+    width: 100%;
+    margin: 1rem;
   }
 `;
 
