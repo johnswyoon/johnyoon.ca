@@ -10,6 +10,8 @@ import ImageGrid from "./components/ImageGrid";
 import Blog from "./pages/Blog";
 import Post from "./components/Post";
 import PostEditor from "./pages/PostEditor";
+//Photo Upload
+import PhotoUploader from "./pages/PhotoUploader";
 //Admin
 // import Login from "./pages/Login";
 // Styles and Animations
@@ -30,11 +32,12 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/photography" component={Photography} />
+            <Route path="/photography/:genre" component={ImageGrid} />
+            <Route exact path="/photo-uploader" component={PhotoUploader} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/blog/:slug" component={Post} />
             <Route exact path="/blog-editor" component={PostEditor} />
             <Route exact path="/about" component={About} />
-            <Route path="/photography/:genre" component={ImageGrid} />
             {/* <Route path="/login" component={Login} /> */}
           </Switch>
         </AnimatePresence>
