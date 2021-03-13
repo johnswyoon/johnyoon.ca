@@ -18,6 +18,7 @@ connectDB();
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/posts", require("./routes/posts"));
 app.use("/api/users", require("./routes/users"));
+app.use("/api/photos", require("./routes/photos"));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {

@@ -3,25 +3,49 @@ import styled from "styled-components";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+// React FilePond
+import { FilePond, File, registerPlugin } from "react-filepond";
+import "filepond/dist/filepond.min.css";
+// FilePond Plugins
+import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+
 require("dotenv").config();
 
 const PhotoUploader = () => {
   const history = useHistory();
+  const [imageDataRaw, setImageDataRaw] = useState("");
   const [data, setData] = useState({
     title: "",
-    thumbnail: "",
-    tags: [],
-    text: "",
+    album: "portraits",
+    date: "",
     password: "",
   });
-  const { title, thumbnail, tags, text, password } = data;
+  const { title, album, date, password } = data;
 
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data, imageDataRaw);
   };
 
   const submitForm = async (e) => {
     e.preventDefault();
+    try {
+      if (process.env.REACT_APP_POSTING_PASSWORD === password) {
+        const newData = { title, album, date, imageDataRaw };
+        const res = await axios.post(
+          "http://localhost:3001/api/photos",
+          newData
+        );
+        history.push(`/photography/${album}`);
+      } else {
+        alert("Wrong Password");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -39,24 +63,40 @@ const PhotoUploader = () => {
           />
         </div>
         <div className="form-group">
-          <label>Collection</label>
-          <select name="collection" required>
-            <option value="portraits">Portraits</option>
+          <label>Album</label>
+          <select
+            name="album"
+            value={album}
+            onChange={(e) => onChange(e)}
+            required
+          >
+            <option value="portraits" default>
+              Portraits
+            </option>
             <option value="street">Street</option>
             <option value="architecture">Architecture</option>
             <option value="automotive">Automotive</option>
           </select>
         </div>
         <div className="form-group">
-          <label>Tags</label>
+          <label>Date</label>
           <input
-            type="text"
+            type="string"
             onChange={(e) => onChange(e)}
-            name="tags"
-            value={tags}
+            name="date"
+            value={date}
             required
           />
+          <small>
+            <em>"March 2018"</em>
+          </small>
         </div>
+        <FilePond
+          files={imageDataRaw}
+          onupdatefiles={setImageDataRaw}
+          name="imageDataRaw"
+          labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
+        />
         <div className="form-group">
           <label>Password</label>
           <input

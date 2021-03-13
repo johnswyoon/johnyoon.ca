@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const PhotoSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
-  collection: {
+  album: {
     type: String,
     required: true,
   },
@@ -16,10 +16,9 @@ const PhotoSchema = new Schema({
   },
   imageType: {
     type: String,
-    required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   visible: {
