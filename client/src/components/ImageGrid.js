@@ -24,7 +24,7 @@ const ImageGrid = () => {
         </p>
       </PhotoText>
       <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2, 1200: 3, 1500: 4, 1800: 5 }}
+        columnsCountBreakPoints={{ 300: 1, 750: 2, 1200: 3, 1600: 4, 2000: 5 }}
       >
         <Masonry columnsCount={5} gutter="2.5rem">
           {current.images.map((image, i) => (

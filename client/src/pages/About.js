@@ -126,13 +126,14 @@ const About = () => {
         <h2>Hi, I'm John</h2>
         <div className="intro-text">
           <p>
-            I'm a 2️nd Year Computer Engineering student at the University of
-            Waterloo. I am also a photographer based in Canada, interested in
-            portrait, street, and automotive photography.
+            I'm a 2nd Year Computer Engineering student at the University of
+            Waterloo.
           </p>
           <p>
-            I created this website to showcase my creativity through software
-            projects and photography.
+            I am also an amateur photographer based in Canada who started
+            shooting in the Summer of 2020! I am interested in portrait, street,
+            and automotive photography. Feel free to shoot me a message if you
+            would like to work together!
           </p>
           <p>
             You may wonder what the <strong>"ㅅㅇ"</strong> symbols mean on the
@@ -191,7 +192,7 @@ const StyledAbout = styled.div`
   padding: 1rem 2rem;
   h2 {
     /* font-size: 3.5rem; */
-    font-size: clamp(40px, 4vw, 3.25rem);
+    font-size: clamp(40px, 4vw, 3rem);
     padding-top: 1rem;
     padding-bottom: 2rem;
   }

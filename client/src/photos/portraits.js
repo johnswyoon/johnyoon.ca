@@ -15,11 +15,6 @@ export const portraits = [
       "https://res.cloudinary.com/jyoon/image/upload/q_auto:low/v1609647812/portraits/DSC_4500-min_i3bin8.jpg",
   },
   {
-    name: "david-utm-bag-2020",
-    url:
-      "https://res.cloudinary.com/jyoon/image/upload/q_auto:low/v1609647804/portraits/DSC04479-min_smtmdd.jpg",
-  },
-  {
     name: "david-lakehore-2020",
     url:
       "https://res.cloudinary.com/jyoon/image/upload/q_auto:low/v1609647810/portraits/DSC_8455_IG-min_rddbgz.jpg",
@@ -38,5 +33,10 @@ export const portraits = [
     name: "friends-bench-montreal-2020",
     url:
       "https://res.cloudinary.com/jyoon/image/upload/q_auto:low/v1609649132/portraits/DSC_7602_IG2_edit-min_ujkxli.jpg",
+  },
+  {
+    name: "ange-sally-quebec-2020",
+    url:
+      "https://res.cloudinary.com/jyoon/image/upload/v1615668381/portraits/DSC_6306_ag8hii.jpg",
   },
 ];
