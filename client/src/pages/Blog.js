@@ -60,7 +60,7 @@ const StyledBlog = styled.div`
   }
   h4 {
     font-size: clamp(1.5rem, 5vw, 1.75rem);
-    font-weight: 500;
+    font-weight: 600;
     padding-bottom: 0.5rem;
   }
 `;

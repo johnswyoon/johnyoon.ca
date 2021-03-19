@@ -21,7 +21,13 @@ const Post = (props) => {
       <img id="thumbnail" src={post.thumbnail} />
       <h2 id="title">{post.title}</h2>
       <p id="date">{dateformat(post.date, "longDate")}</p>
-      <ReactMarkdownWithHtml children={post.text} allowDangerousHtml />
+      <StyledMarkdown>
+        <ReactMarkdownWithHtml
+          id="markdown"
+          children={post.text}
+          allowDangerousHtml
+        />
+      </StyledMarkdown>
     </StyledPost>
   );
 };
@@ -42,6 +48,8 @@ const StyledPost = styled.div`
   img {
     width: 600px;
     object-fit: cover;
+    align-items: center;
+    display: block;
   }
   @media screen and (max-width: 670px) {
     img {
@@ -69,12 +77,11 @@ const StyledPost = styled.div`
 
   h2 {
     font-size: clamp(40px, 2vw, 2rem);
+    text-align: center;
   }
   h3 {
     font-size: clamp(1.25rem, 5vw, 1.75rem);
     font-weight: 700;
-  }
-  .paragraph {
   }
 
   p,
@@ -91,13 +98,18 @@ const StyledPost = styled.div`
   }
 
   a {
-    color: #4672db;
+    color: #3963c4;
   }
 
   hr {
     width: 100%;
     margin: 1rem;
   }
+`;
+
+const StyledMarkdown = styled.div`
+  /* display: flex; */
+  /* flex-direction: column; */
 `;
 
 export default Post;
