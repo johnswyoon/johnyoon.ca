@@ -8,6 +8,7 @@ const photoGenre = [
   { name: "street", image: "", url: "/photography/street" },
   { name: "architecture", image: "", url: "/photography/architecture" },
   { name: "automotive", image: "", url: "/photography/automotive" },
+  { name: "film", image: "", url: "/photography/film" },
 ];
 
 const Photography = () => {

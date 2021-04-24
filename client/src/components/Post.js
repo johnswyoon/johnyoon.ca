@@ -53,17 +53,18 @@ const StyledPost = styled.div`
   }
   @media screen and (max-width: 670px) {
     img {
-      width: 450px;
+      width: 100%;
+      /* width: 450px; */
     }
   }
   @media screen and (max-width: 500px) {
     img {
-      width: 350px;
+      /* width: 350px; */
     }
   }
   @media screen and (max-width: 425px) {
     img {
-      width: 300px;
+      /* width: 300px; */
     }
   }
 
@@ -87,9 +88,10 @@ const StyledPost = styled.div`
   p,
   li {
     font-size: 1.15rem;
-    font-weight: 100;
+    font-weight: 300;
     /* line-height: 1.75rem; */
     line-height: 2.25rem;
+    font-family: "Nunito Sans";
   }
 
   p,

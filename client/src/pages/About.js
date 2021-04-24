@@ -207,6 +207,7 @@ const StyledAbout = styled.div`
     font-size: 1.15rem;
     line-height: 1.75rem;
     letter-spacing: 1px;
+    font-weight: 300;
   }
   @media screen and (max-width: 1024px) {
     flex-direction: column;
