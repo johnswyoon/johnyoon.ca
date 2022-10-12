@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const photoGenre = [
   { name: "portrait", image: "", url: "/photography/portrait" },
-  { name: "street", image: "", url: "/photography/street" },
-  { name: "architecture", image: "", url: "/photography/architecture" },
-  { name: "automotive", image: "", url: "/photography/automotive" },
   { name: "film", image: "", url: "/photography/film" },
+  //   { name: "street", image: "", url: "/photography/street" },
+  //   { name: "architecture", image: "", url: "/photography/architecture" },
+  { name: "automotive", image: "", url: "/photography/automotive" },
 ];
 
 const Photography = () => {

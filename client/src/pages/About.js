@@ -5,10 +5,6 @@ import profilepic from "../assets/img/profile.jpg";
 import igIcon from "../assets/icons/ig-100.png";
 import inIcon from "../assets/icons/in-100.png";
 import ghIcon from "../assets/icons/gh-100.png";
-import johnMayer from "../assets/img/albums/room-for-squares.jpg";
-import kendrick from "../assets/img/albums/good-kid-maad-city.jpg";
-import yerin from "../assets/img/albums/every-letter-i-sent-you.jpg";
-import moon from "../assets/img/albums/moonology.jpg";
 
 const socialList = [
   {
@@ -27,9 +23,9 @@ const socialList = [
     url: "https://github.com/johnswyoon",
   },
   {
-    name: "john.sw.yoon@gmail.com",
+    name: "johnswyoon@gmail.com",
     image: "",
-    url: "mailto:john.sw.yoon@gmail.com",
+    url: "mailto:johnswyoon@gmail.com",
   },
 ];
 const gearList = [
@@ -39,36 +35,34 @@ const gearList = [
 ];
 const songList = [
   {
-    title: "No Such Thing",
-    album: "Room for Squares",
-    artist: "John Mayer",
-    image: johnMayer,
-    url:
-      "https://open.spotify.com/track/6Vecwo7AHst9V2CE3kmwr0?si=lfRjseB3QP2Cf3pYnPL3Ag",
+    title: "Psychic",
+    album: "Breezy",
+    artist: "Christ Brown feat. Jack Harlow",
+    image:
+      "https://images.genius.com/3600e8f28bf7872aa01458bb8928e904.1000x1000x1.jpg",
+    url: "https://open.spotify.com/track/64pUytZWfCpeeMBN0XAadF?si=76d9662199a54819",
   },
   {
-    title: "Now Or Never",
-    album: "good kid, m.A.A.d city",
-    artist: "Kendrick Lamar",
-    image: kendrick,
-    url:
-      "https://open.spotify.com/track/4KjnaUNYPwGnJjoeTFlt91?si=K5PvtqxvRl2M8-5c-K4nEQ",
+    title: "Calico",
+    album: "Moodswings In To Order",
+    artist: "DPR Ian",
+    image:
+      "https://images.genius.com/fd47398ef1d935e4a3d23d15567c1b10.1000x1000x1.png",
+    url: "https://open.spotify.com/track/6rgMOrZmsa3eKZfRSw1587?si=b40bd8e55e8245ad",
   },
   {
-    title: "Square (2017)",
-    album: "Every letter I sent you.",
-    artist: "백예린",
-    image: yerin,
-    url:
-      "https://open.spotify.com/track/0WZhf0isd4av5qlFfKknC3?si=fktTdj1jRjiu19iAedD0RA",
+    title: "너는 어떻게",
+    album: "너는 어떻게",
+    artist: "구원찬 feat. 백예린",
+    image: "https://i.scdn.co/image/ab67616d00001e02635d8a452f469f726e99bd5e",
+    url: "https://open.spotify.com/track/2mVb3RIBLffHQsauvkHBuf?si=47f89cf88faf41e6",
   },
   {
-    title: "Notice",
-    album: "Moonology",
-    artist: "Jen Moon",
-    image: moon,
-    url:
-      "https://open.spotify.com/track/6fWOxPnGBWPypiMAE9UaKA?si=IajIBQkKRtSokr2yn55BJg",
+    title: "No Fear No More (Remix)",
+    album: "No Fear No More (Remix)",
+    artist: "Madeon, EARTHGANG",
+    image: "https://i1.sndcdn.com/artworks-RFj6QL0x9mZL-0-t500x500.jpg",
+    url: "hhttps://open.spotify.com/track/36X1P3v7N1dv06bh2aPtMF?si=ac515dfbf0644d92",
   },
 ];
 
@@ -126,27 +120,22 @@ const About = () => {
         <h2>Hi, I'm John</h2>
         <div className="intro-text">
           <p>
-            I'm a 2nd Year Computer Engineering student at the University of
+            I'm in my 3B term studying Computer Engineering at the University of
             Waterloo.
           </p>
           <p>
-            I am also an amateur photographer based in Canada who started
-            shooting in the Summer of 2020! I am interested in portrait, street,
-            and automotive photography. Feel free to shoot me a message if you
-            would like to work together!
+            When I'm not doing things related to engineering, you can catch me
+            taking photos of my friends, attempting to play guitar, or cheering
+            on the Toronto Raptors!
           </p>
           <p>
-            You may wonder what the <strong>"ㅅㅇ"</strong> symbols mean on the
-            top left! They are the Korean consonants that make up my name:{" "}
-            <strong>승원</strong>. My grandfather had chosen the meaning of my
-            name: <strong>勝垣</strong> meaning victory, wall. Before you ask...
-            no, I am not good at Korean.
+            You may wonder what the <em>"ㅅㅇ"</em> symbols mean on the top left
+            of my site! They are the Korean consonants that make up my name,{" "}
+            <i>승원</i>. My grandfather had chosen the meaning of my name:{" "}
+            <em>勝垣</em> meaning victory and wall. Before you ask... no, I am
+            not good at Korean.
           </p>
-          <p>
-            Below are some of the songs that I am currently listening to. Take a
-            listen to Moonology by Jen Moon. She's an up and coming artist from
-            Toronto!
-          </p>
+          <p>Below are songs that I pop on my Sony XM4's and listen to:</p>
         </div>
         <Songs>
           <h3>Currently Listening To</h3>
