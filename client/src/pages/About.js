@@ -124,9 +124,9 @@ const About = () => {
             Waterloo.
           </p>
           <p>
-            When I'm not doing things related to engineering, you can catch me
+            When I'm not doing things related to engineering, you can find me
             taking photos of my friends, attempting to play guitar, or cheering
-            on the Toronto Raptors!
+            for the Toronto Raptors!
           </p>
           <p>
             You may wonder what the <em>"ㅅㅇ"</em> symbols mean on the top left
@@ -135,7 +135,7 @@ const About = () => {
             <em>勝垣</em> meaning victory and wall. Before you ask... no, I am
             not good at Korean.
           </p>
-          <p>Below are songs that I pop on my Sony XM4's and listen to:</p>
+          <p>I also like to slap on my Sony XM4's and listen to music</p>
         </div>
         <Songs>
           <h3>Currently Listening To</h3>
