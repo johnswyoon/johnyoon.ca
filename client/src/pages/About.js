@@ -135,7 +135,7 @@ const About = () => {
             <em>勝垣</em> meaning victory and wall. Before you ask... no, I am
             not good at Korean.
           </p>
-          <p>I also like to slap on my Sony XM4's and listen to music</p>
+          <p>I also like to slap on my Sony XM4's and listen to music:</p>
         </div>
         <Songs>
           <h3>Currently Listening To</h3>
