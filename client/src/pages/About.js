@@ -120,7 +120,7 @@ const About = () => {
         <h2>Hi, I'm John</h2>
         <div className="intro-text">
           <p>
-            I'm in my 3B term studying Computer Engineering at the University of
+            I'm in my 4A term studying Computer Engineering at the University of
             Waterloo.
           </p>
           <p>
