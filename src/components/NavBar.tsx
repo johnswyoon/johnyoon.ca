@@ -20,7 +20,11 @@ export function NavBar() {
     <NavigationMenu className="mx-auto w-full">
       <NavigationMenuList>
         {menuItems.map((menuItem) => (
-          <NavMenuItem link={menuItem.link} title={menuItem.title} />
+          <NavMenuItem
+            key={menuItem.link}
+            link={menuItem.link}
+            title={menuItem.title}
+          />
         ))}
       </NavigationMenuList>
     </NavigationMenu>
@@ -30,11 +34,9 @@ export function NavBar() {
 function NavMenuItem({ link, title }: { link: string; title: string }) {
   return (
     <NavigationMenuItem>
-      <Link href={link} passHref>
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          {title}
-        </NavigationMenuLink>
-      </Link>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+        <Link href={link}>{title}</Link>
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 }

@@ -5,10 +5,10 @@ import memoji from "../../public/memoji.png";
 
 export default function Home() {
   return (
-    <PageLayout>
-      <div className="flex justify-center items-center">
+    <PageLayout className="my-auto h-full">
+      <div className="flex items-center justify-center">
         <div className="mr-10">
-          <h1 className="text-6xl font-bold pb-4">John Yoon</h1>
+          <h1 className="pb-4 text-6xl font-bold">John Yoon</h1>
           <p>A visual collection of my creative process.</p>
         </div>
         <Image src={memoji} alt="John's Memoji" />

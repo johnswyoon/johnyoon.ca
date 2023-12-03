@@ -8,7 +8,12 @@ type PageLayoutProps = {
 
 export function PageLayout({ children, className }: PageLayoutProps) {
   return (
-    <div className={cn("mx-auto w-full max-w-screen-xl", className)}>
+    <div
+      className={cn(
+        "mx-auto mt-5 w-full max-w-screen-xl px-2.5 md:mt-12 md:px-20",
+        className,
+      )}
+    >
       {children}
     </div>
   );
