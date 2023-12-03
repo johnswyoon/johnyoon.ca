@@ -1,57 +1,26 @@
 import { PageLayout } from "@/components/PageLayout";
 import Image from "next/image";
-import { Linkedin, Github, Mail } from "lucide-react";
 import profile from "../../../public/profile.jpg";
 import Paragraph from "@/components/Paragraph";
-import { ReactNode } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { SocialSection } from "@/components/SocialSection";
+import { WorkExperience } from "@/components/WorkExperience";
 
 export default function About() {
-  const socials: SocialRowProps[] = [
-    {
-      icon: <Linkedin size={20} />,
-      link: "https://www.linkedin.com/in/johnswyoon/",
-      title: "Linkedin",
-      color: "bg-sky-700",
-    },
-    {
-      icon: <Github size={20} />,
-      link: "https://github.com/johnswyoon",
-      title: "Github",
-      color: "",
-    },
-    {
-      icon: <Mail size={20} />,
-      link: "mailto:johnswyoon@gmail.com",
-      title: "Email",
-      color: "bg-red-700",
-    },
-  ];
-
   return (
     <PageLayout className="max-w-screen-lg">
-      <div className="grid grid-cols-4 gap-4">
-        <div className="col-span-1">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
+        <div className="col-span-1 flex flex-col items-center">
           <Image
             src={profile}
             alt="John's Profile Picture"
             className="mb-4 rounded-full"
+            width={250}
           />
           <div>
             <h3 className="text-xl font-medium text-gray-800">
               Connect with me
             </h3>
-
-            {socials.map((social) => (
-              <SocialRow
-                icon={social.icon}
-                link={social.link}
-                title={social.title}
-                color={social.color}
-              />
-            ))}
+            <SocialSection />
           </div>
         </div>
         <div className="col-span-3 ml-6 mt-8">
@@ -59,6 +28,7 @@ export default function About() {
             Hi, I'm John
           </h1>
           <IntroParagraph />
+          <WorkExperience className="mt-8" />
         </div>
       </div>
     </PageLayout>
@@ -88,24 +58,5 @@ function IntroParagraph() {
         I also like to slap on my Sony XM4's and listen to music:
       </Paragraph>
     </div>
-  );
-}
-
-type SocialRowProps = {
-  icon: ReactNode;
-  link: string;
-  title: string;
-  color: string;
-};
-function SocialRow({ icon, link, title, color }: SocialRowProps) {
-  return (
-    <Button className={cn("my-0.5 h-8 w-full rounded-full", color)} asChild>
-      <Link href={link} target="_blank" rel="noopener noreferrer">
-        <div className="flex items-center gap-2">
-          {icon}
-          <p>{title}</p>
-        </div>
-      </Link>
-    </Button>
   );
 }
