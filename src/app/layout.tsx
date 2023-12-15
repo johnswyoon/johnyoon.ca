@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { cn } from "@/lib/utils";
-import { NavBar } from "@/components/NavBar";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { cn } from '@/lib/utils';
+import { NavBar } from '@/components/NavBar';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "John Yoon",
+  title: 'John Yoon',
   description: "John Yoon's Personal Website",
 };
 
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="w-full">
-      <body className={cn("h-full antialiased", "inter.className")}>
+      <body className={cn('h-full antialiased', 'inter.className')}>
         <NavBar />
         {children}
       </body>

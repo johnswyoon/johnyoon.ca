@@ -1,3 +1,7 @@
-export default function Photography() {
-  return <h1>Photography</h1>;
+export default async function Photography() {
+  return (
+    <div>
+      <h1>Photography</h1>
+    </div>
+  );
 }

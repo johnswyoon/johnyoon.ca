@@ -1,9 +1,9 @@
-import { PageLayout } from "@/components/PageLayout";
-import Image from "next/image";
+import { PageLayout } from '@/components/PageLayout';
+import Image from 'next/image';
 
-import memoji from "../../public/memoji.png";
+import memoji from '../../public/memoji.png';
 
-export default function Home() {
+export default async function Home() {
   return (
     <PageLayout className="my-auto h-full">
       <div className="flex items-center justify-center">
