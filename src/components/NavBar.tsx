@@ -19,18 +19,20 @@ export async function NavBar() {
   ];
 
   return (
-    <NavigationMenu className="mx-auto w-full">
-      <NavigationMenuList>
-        {menuItems.map((menuItem) => (
-          <NavMenuItem
-            key={menuItem.link}
-            link={menuItem.link}
-            title={menuItem.title}
-          />
-        ))}
-      </NavigationMenuList>
+    <>
+      <NavigationMenu className="mx-auto mt-2 w-full">
+        <NavigationMenuList>
+          {menuItems.map((menuItem) => (
+            <NavMenuItem
+              key={menuItem.link}
+              link={menuItem.link}
+              title={menuItem.title}
+            />
+          ))}
+        </NavigationMenuList>
+      </NavigationMenu>
       <ProfileDropdown />
-    </NavigationMenu>
+    </>
   );
 }
 

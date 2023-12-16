@@ -12,6 +12,7 @@ import {
 
 import { signIn, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import { Button } from '../ui/button';
 
 export default function ProfileDropdown() {
   const [user, setUser] = useState({
@@ -38,28 +39,32 @@ export default function ProfileDropdown() {
     })();
   }, []);
 
+  if (!user.name && !user.avatar) {
+    return (
+      <div className="fixed right-4 top-4" onClick={async () => signIn()}>
+        <Button>Sign in</Button>
+      </div>
+    );
+  }
+
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="fixed right-4 top-4 focus:outline-none">
         <div className="flex items-center">
-          {!user.name ? <p>Sign in</p> : null}
           {user.avatar ? (
             <Image
               src={user.avatar}
               className="rounded-full"
-              alt="hi"
+              alt="profile picture"
               width={40}
               height={40}
             />
           ) : null}
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuContent align="end">
+        <DropdownMenuLabel>{user.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <div onClick={async () => signIn()}>Sign in</div>
-        </DropdownMenuItem>
         <DropdownMenuItem>
           <div onClick={async () => signOut()}>Sign out</div>
         </DropdownMenuItem>
