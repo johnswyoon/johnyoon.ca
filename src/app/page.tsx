@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import memoji from '../../public/memoji.png';
 
-export default async function Home() {
+export default function Home() {
   return (
     <PageLayout className="my-auto h-full">
       <div className="flex items-center justify-center">

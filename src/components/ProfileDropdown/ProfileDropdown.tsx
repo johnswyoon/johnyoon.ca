@@ -9,39 +9,43 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import axios from 'axios';
 
 import { signIn, signOut } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 
+type ProfileDropdownUser = {
+  name: string | null;
+  avatar: string | null;
+};
+
 export default function ProfileDropdown() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<ProfileDropdownUser>({
     name: null,
     avatar: null,
   });
 
-  async function getSession() {
+  const getSession = useCallback(async () => {
     try {
-      const response = await fetch('/api/user/session');
-      const { body } = await response.json();
+      const response = await axios.get('/api/auth/session');
+      const data = response.data.user;
       setUser({
-        name: body.user.name,
-        avatar: body.user.image,
+        name: data.name,
+        avatar: data.image,
       });
     } catch (error) {
       console.error(error);
     }
-  }
-
-  useEffect(() => {
-    (async () => {
-      await getSession();
-    })();
   }, []);
 
-  if (!user.name && !user.avatar) {
+  useEffect(() => {
+    getSession();
+  }, []);
+
+  if (!user.name || !user.avatar) {
     return (
-      <div className="fixed right-4 top-4" onClick={async () => signIn()}>
+      <div className="fixed right-4 top-2" onClick={async () => signIn()}>
         <Button>Sign in</Button>
       </div>
     );
@@ -49,7 +53,7 @@ export default function ProfileDropdown() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="fixed right-4 top-4 focus:outline-none">
+      <DropdownMenuTrigger className="fixed right-4 top-2 focus:outline-none">
         <div className="flex items-center">
           {user.avatar ? (
             <Image
