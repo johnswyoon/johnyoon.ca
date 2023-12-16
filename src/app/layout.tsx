@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { NavBar } from '@/components/NavBar';
 import AuthProvider from '@/context/AuthProvider';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <AuthProvider>
           <NavBar />
           {children}
+          <Analytics />
         </AuthProvider>
       </body>
     </html>
