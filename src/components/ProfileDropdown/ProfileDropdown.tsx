@@ -42,14 +42,14 @@ export default function ProfileDropdown() {
     <DropdownMenu>
       <DropdownMenuTrigger>
         <div className="flex items-center">
-          <h3>{user.name ?? 'Sign in'}</h3>
+          {!user.name ? <p>Sign in</p> : null}
           {user.avatar ? (
             <Image
               src={user.avatar}
               className="rounded-full"
               alt="hi"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
             />
           ) : null}
         </div>
