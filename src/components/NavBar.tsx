@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   NavigationMenu,
@@ -6,16 +6,18 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
+} from '@/components/ui/navigation-menu';
+import Link from 'next/link';
+import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
 
-export function NavBar() {
+export async function NavBar() {
   const menuItems = [
-    { link: "/", title: "home" },
-    { link: "/photography", title: "photography" },
-    { link: "/blog", title: "blog" },
-    { link: "/about", title: "about" },
+    { link: '/', title: 'home' },
+    { link: '/photography', title: 'photography' },
+    { link: '/blog', title: 'blog' },
+    { link: '/about', title: 'about' },
   ];
+
   return (
     <NavigationMenu className="mx-auto w-full">
       <NavigationMenuList>
@@ -27,6 +29,7 @@ export function NavBar() {
           />
         ))}
       </NavigationMenuList>
+      <ProfileDropdown />
     </NavigationMenu>
   );
 }
