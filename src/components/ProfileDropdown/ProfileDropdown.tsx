@@ -27,7 +27,7 @@ export default function ProfileDropdown() {
 
   const getSession = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/auth/session');
+      const response = await fetch('/api/auth/session');
       const data = await response.json();
 
       if (data) {
