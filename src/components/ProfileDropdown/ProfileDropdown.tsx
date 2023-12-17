@@ -9,7 +9,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import axios from 'axios';
 
 import { signIn, signOut } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
@@ -28,12 +27,21 @@ export default function ProfileDropdown() {
 
   const getSession = useCallback(async () => {
     try {
-      const response = await axios.get('/api/auth/session');
-      const data = response.data.user;
-      setUser({
-        name: data.name,
-        avatar: data.image,
-      });
+      const response = await fetch('http://localhost:3000/api/auth/session');
+      const data = await response.json();
+
+      if (data) {
+        const { name, image } = data.user;
+        setUser({
+          name,
+          avatar: image,
+        });
+      } else {
+        setUser({
+          name: null,
+          avatar: null,
+        });
+      }
     } catch (error) {
       console.error(error);
     }
