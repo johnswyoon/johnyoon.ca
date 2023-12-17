@@ -1,7 +1,8 @@
-import { PageLayout } from '@/components/PageLayout';
 import Image from 'next/image';
 
 import memoji from '../../public/memoji.png';
+
+import { PageLayout } from '@/components/PageLayout';
 
 export default function Home() {
   return (

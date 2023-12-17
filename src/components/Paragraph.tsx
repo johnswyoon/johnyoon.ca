@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import type { ReactNode } from 'react';
+
+import { cn } from '@/lib/utils';
 
 type ParagraphProps = {
   children: ReactNode;
@@ -8,6 +9,6 @@ type ParagraphProps = {
 
 export default function Paragraph({ children, className }: ParagraphProps) {
   return (
-    <p className={cn("mb-3 text-base text-gray-800", className)}>{children}</p>
+    <p className={cn('mb-3 text-base text-gray-800', className)}>{children}</p>
   );
 }

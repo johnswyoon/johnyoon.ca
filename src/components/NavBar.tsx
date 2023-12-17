@@ -1,5 +1,9 @@
 'use client';
 
+import Link from 'next/link';
+
+import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -7,8 +11,6 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import Link from 'next/link';
-import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
 
 export async function NavBar() {
   const menuItems = [

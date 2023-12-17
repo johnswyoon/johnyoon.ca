@@ -1,9 +1,11 @@
-import { PageLayout } from "@/components/PageLayout";
-import Image from "next/image";
-import profile from "../../../public/profile.jpg";
-import Paragraph from "@/components/Paragraph";
-import { SocialSection } from "@/components/SocialSection";
-import { WorkExperience } from "@/components/WorkExperience";
+import Image from 'next/image';
+
+import profile from '../../../public/profile.jpg';
+
+import { PageLayout } from '@/components/PageLayout';
+import Paragraph from '@/components/Paragraph';
+import { SocialSection } from '@/components/SocialSection';
+import { WorkExperience } from '@/components/WorkExperience';
 
 export default function About() {
   return (

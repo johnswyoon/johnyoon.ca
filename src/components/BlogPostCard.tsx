@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import { formatDate } from '@/lib/utils';
+
 import { Badge } from './ui/badge';
+
+import { formatDate } from '@/lib/utils';
 
 type BlogPostCardProps = {
   title: string;

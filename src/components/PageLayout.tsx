@@ -1,5 +1,6 @@
-import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import type { ReactNode } from 'react';
+
+import { cn } from '@/lib/utils';
 
 type PageLayoutProps = {
   children: ReactNode;
@@ -10,7 +11,7 @@ export function PageLayout({ children, className }: PageLayoutProps) {
   return (
     <div
       className={cn(
-        "mx-auto mt-5 w-full max-w-screen-xl px-2.5 md:mt-12 md:px-20",
+        'mx-auto mt-5 w-full max-w-screen-xl px-2.5 md:mt-12 md:px-20',
         className,
       )}
     >

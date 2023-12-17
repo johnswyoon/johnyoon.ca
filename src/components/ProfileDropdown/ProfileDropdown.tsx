@@ -1,6 +1,11 @@
 'use client';
 
-import Image from 'next/image';
+import { signIn, signOut } from 'next-auth/react';
+import { useCallback, useEffect, useState } from 'react';
+
+import { Button } from '../ui/button';
+
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,11 +14,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
-import { signIn, signOut } from 'next-auth/react';
-import { useCallback, useEffect, useState } from 'react';
-import { Button } from '../ui/button';
 
 type ProfileDropdownUser = {
   name: string | null;
@@ -50,7 +50,7 @@ export default function ProfileDropdown() {
 
   useEffect(() => {
     getSession();
-  }, []);
+  }, [getSession]);
 
   if (!user.name || !user.avatar) {
     return (

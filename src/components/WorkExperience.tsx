@@ -3,45 +3,45 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/accordion';
+import { cn } from '@/lib/utils';
 
 export function WorkExperience({ className }: { className?: string }) {
   const workExperience: ExperienceItemProps[] = [
     {
-      company: "Canvass AI",
-      title: "Software Engineering Intern",
+      company: 'Canvass AI',
+      title: 'Software Engineering Intern',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.",
-      date: "Sept - Dec 2023",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.',
+      date: 'Sept - Dec 2023',
     },
     {
-      company: "Monogram",
-      title: "Software Engineering Intern",
+      company: 'Monogram',
+      title: 'Software Engineering Intern',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.",
-      date: "Jan - Apr 2023",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.',
+      date: 'Jan - Apr 2023',
     },
     {
-      company: "Empire Life",
-      title: "Software Engineering Intern",
+      company: 'Empire Life',
+      title: 'Software Engineering Intern',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.",
-      date: "Jan - Apr 2022",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.',
+      date: 'Jan - Apr 2022',
     },
     {
-      company: "NASCI",
-      title: "Web Developer Intern",
+      company: 'NASCI',
+      title: 'Web Developer Intern',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.",
-      date: "May - Aug 2021",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.',
+      date: 'May - Aug 2021',
     },
     {
-      company: "EQ Bank",
-      title: "QA Analyst Intern",
+      company: 'EQ Bank',
+      title: 'QA Analyst Intern',
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.",
-      date: "Jan - Apr 2020",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna varius ullamcorper sed ac quam. Vestibulum euismod, tortor eu posuere blandit, purus justo condimentum justo, non ullamcorper elit arcu vel dui.',
+      date: 'Jan - Apr 2020',
     },
   ];
   return (

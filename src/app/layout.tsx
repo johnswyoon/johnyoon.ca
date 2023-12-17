@@ -1,8 +1,10 @@
-import { NavBar } from '@/components/NavBar';
-import { cn } from '@/lib/utils';
+import './globals.css';
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
+
+import { NavBar } from '@/components/NavBar';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="w-full">
-      <body className={cn('h-full antialiased', 'inter.className')}>
+      <body className={cn('h-full antialiased', inter.className)}>
         <NavBar />
         {children}
       </body>
