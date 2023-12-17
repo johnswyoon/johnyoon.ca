@@ -9,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 import { signIn, signOut } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
@@ -53,7 +54,10 @@ export default function ProfileDropdown() {
 
   if (!user.name || !user.avatar) {
     return (
-      <div className="fixed right-4 top-2" onClick={async () => signIn()}>
+      <div
+        className="fixed right-4 top-2"
+        onClick={async () => signIn('google')}
+      >
         <Button>Sign in</Button>
       </div>
     );
@@ -64,13 +68,10 @@ export default function ProfileDropdown() {
       <DropdownMenuTrigger className="fixed right-4 top-2 focus:outline-none">
         <div className="flex items-center">
           {user.avatar ? (
-            <Image
-              src={user.avatar}
-              className="rounded-full"
-              alt="profile picture"
-              width={40}
-              height={40}
-            />
+            <Avatar>
+              <AvatarImage src={user.avatar} />
+              <AvatarFallback>{getInitials(user.name) ?? '?'}</AvatarFallback>
+            </Avatar>
           ) : null}
         </div>
       </DropdownMenuTrigger>
@@ -83,4 +84,10 @@ export default function ProfileDropdown() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+}
+
+function getInitials(name: string) {
+  const nameSplit = name.split(' ');
+  const initials = nameSplit.map((name) => name[0].toUpperCase()).join('');
+  return initials;
 }

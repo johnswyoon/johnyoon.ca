@@ -11,7 +11,7 @@ export default function Home() {
           <h1 className="pb-4 text-6xl font-bold">John Yoon</h1>
           <p>A visual collection of my creative process.</p>
         </div>
-        <Image src={memoji} alt="John's Memoji" />
+        <Image src={memoji} alt="John's Memoji" priority={true} />
       </div>
     </PageLayout>
   );
