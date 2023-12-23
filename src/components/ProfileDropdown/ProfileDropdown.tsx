@@ -1,7 +1,6 @@
 'use client';
 
-import { signIn, signOut } from 'next-auth/react';
-import { useCallback, useEffect, useState } from 'react';
+import { useClerk, useUser } from '@clerk/nextjs';
 
 import { Button } from '../ui/button';
 
@@ -15,71 +14,43 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-type ProfileDropdownUser = {
-  name: string | null;
-  avatar: string | null;
-};
-
 export default function ProfileDropdown() {
-  const [user, setUser] = useState<ProfileDropdownUser>({
-    name: null,
-    avatar: null,
-  });
+  const { isLoaded, isSignedIn, user } = useUser();
+  const { signOut, openSignIn } = useClerk();
 
-  const getSession = useCallback(async () => {
-    try {
-      const response = await fetch('/api/auth/session');
-      const data = await response.json();
+  if (!isLoaded) {
+    return <h1>IS LOADING...</h1>;
+  }
 
-      if (data) {
-        const { name, image } = data.user;
-        setUser({
-          name,
-          avatar: image,
-        });
-      } else {
-        setUser({
-          name: null,
-          avatar: null,
-        });
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  useEffect(() => {
-    getSession();
-  }, [getSession]);
-
-  if (!user.name || !user.avatar) {
+  if (!isSignedIn) {
     return (
-      <div
-        className="fixed right-4 top-2"
-        onClick={async () => signIn('google')}
-      >
-        <Button>Sign in</Button>
+      <div className="fixed right-4 top-2">
+        <Button onClick={() => openSignIn()}>Sign in</Button>
       </div>
     );
   }
+
+  const { fullName, imageUrl } = user;
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="fixed right-4 top-2 focus:outline-none">
         <div className="flex items-center">
-          {user.avatar ? (
+          {imageUrl ? (
             <Avatar>
-              <AvatarImage src={user.avatar} />
-              <AvatarFallback>{getInitials(user.name) ?? '?'}</AvatarFallback>
+              <AvatarImage src={imageUrl} />
+              <AvatarFallback>
+                {getInitials(fullName as string) ?? '?'}
+              </AvatarFallback>
             </Avatar>
           ) : null}
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuLabel>{user.name}</DropdownMenuLabel>
+        <DropdownMenuLabel>{fullName}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <div onClick={async () => signOut()}>Sign out</div>
+          <div onClick={() => signOut()}>Sign out</div>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
