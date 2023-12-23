@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
@@ -20,10 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="w-full">
-      <body className={cn('h-full antialiased', inter.className)}>
-        <NavBar />
-        {children}
-      </body>
+      <ClerkProvider>
+        <body className={cn('h-full antialiased', inter.className)}>
+          <NavBar />
+          {children}
+        </body>
+      </ClerkProvider>
     </html>
   );
 }
