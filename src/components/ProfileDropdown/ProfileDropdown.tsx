@@ -19,7 +19,7 @@ export default function ProfileDropdown() {
   const { signOut, openSignIn } = useClerk();
 
   if (!isLoaded) {
-    return <h1>IS LOADING...</h1>;
+    return <h1>Is loading...</h1>;
   }
 
   if (!isSignedIn) {
