@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         return email.id === primary_email_address_id;
       });
 
-      if (!emailObject) {
+      if (!emailObject || !id) {
         return new Response('Error finding user', { status: 400 });
       }
 
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
         await prisma.user.upsert({
           where: { email: userEmail },
           create: {
-            id,
+            id: id,
             name: `${first_name || ''} ${last_name || ''}`,
             email: userEmail,
             image: image_url,
