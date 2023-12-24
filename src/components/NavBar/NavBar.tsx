@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import ProfileDropdown from './ProfileDropdown/ProfileDropdown';
+import ProfileDropdown from './ProfileDropdown';
 
 import {
   NavigationMenu,

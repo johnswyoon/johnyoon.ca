@@ -16,10 +16,10 @@ import {
 
 export default function ProfileDropdown() {
   const { isLoaded, isSignedIn, user } = useUser();
-  const { signOut, openSignIn } = useClerk();
+  const { openSignIn, signOut, openUserProfile } = useClerk();
 
   if (!isLoaded) {
-    return <h1>Is loading...</h1>;
+    return null;
   }
 
   if (!isSignedIn) {
@@ -50,7 +50,15 @@ export default function ProfileDropdown() {
         <DropdownMenuLabel>{fullName}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <div onClick={() => signOut()}>Sign out</div>
+          <button
+            className="w-full text-left"
+            onClick={() => openUserProfile()}
+          >
+            Profile
+          </button>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <button onClick={() => signOut()}>Sign out</button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -58,7 +66,10 @@ export default function ProfileDropdown() {
 }
 
 function getInitials(name: string) {
-  const nameSplit = name.split(' ');
-  const initials = nameSplit.map((name) => name[0].toUpperCase()).join('');
-  return initials;
+  if (name.length > 0) {
+    const nameSplit = name.split(' ');
+    const initials = nameSplit.map((name) => name[0].toUpperCase()).join('');
+    return initials;
+  }
+  return 'ERR';
 }

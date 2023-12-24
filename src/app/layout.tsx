@@ -4,7 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { NavBar } from '@/components/NavBar';
+import { NavBar } from '@/components/NavBar/NavBar';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
