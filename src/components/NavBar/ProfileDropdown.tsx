@@ -58,7 +58,9 @@ export default function ProfileDropdown() {
           </button>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <button onClick={() => signOut()}>Sign out</button>
+          <button className="w-full text-left" onClick={() => signOut()}>
+            Sign out
+          </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
