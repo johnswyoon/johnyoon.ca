@@ -1,26 +1,24 @@
 'use client';
-/*
-GOAL: create a form that has MD editor to submit to prisma posts
-1. set up form
-2. set up MD editor
-3. send to prisma
-*/
 
 import 'md-editor-rt/lib/style.css';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { debounce } from 'lodash';
 import { MdEditor } from 'md-editor-rt';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import slugify from 'slugify';
+import { type UploadFileResponse } from 'uploadthing/client';
 import { z } from 'zod';
 
 import TagInput from './TagInput';
+import { UploadButton } from './UploadButton';
 
 import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
-  FormField,
   FormItem,
   FormLabel,
   FormMessage,
@@ -41,22 +39,53 @@ type FormSchema = z.infer<typeof formSchema>;
 export default function PostForm() {
   const [markdown, setMarkdown] = useState('# Heading');
   const [tags, setTags] = useState<string[]>([]);
+  const [isThumbnail, setIsThumbnail] = useState(false);
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       title: '',
       content: markdown,
-      thumbnail: '', // find default 4x3 thumbnail
+      thumbnail: '', // TODO: find default 4x3 thumbnail
       slug: '',
       published: false,
       tags: [],
     },
   });
+  const { register, getValues, setValue, handleSubmit, watch } = form;
+
+  const watchTitle = watch('title');
+
+  useEffect(() => {
+    const slug = slugify(getValues('title'));
+    setValue('slug', slug);
+  }, [getValues, setValue, watchTitle]);
+
+  useEffect(() => {
+    setValue('tags', tags);
+  }, [tags, form, setValue]);
+
+  const handleDebounce = debounce((text: string) => {
+    setMarkdown(text);
+    setValue('content', text);
+  }, 1000);
 
   function handleMDEditor(text: string) {
-    setMarkdown(text);
-    form.setValue('content', text);
+    handleDebounce(text);
+  }
+
+  function checkEnterKey(e: React.KeyboardEvent) {
+    if (e.key === 'Enter') e.preventDefault();
+  }
+
+  function handleUploadThumbnail(res: UploadFileResponse<string>[]) {
+    const thumbnailUrl = res[0].url;
+    setValue('thumbnail', thumbnailUrl);
+    setIsThumbnail(true);
+
+    // Add a toast for success
+    // maybe seperate out for thumbnial (auto put url)
+    // and another for regular pics and put display links so user can copy
   }
 
   function onSubmit(values: FormSchema) {
@@ -66,20 +95,37 @@ export default function PostForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Post Title</FormLabel>
-              <FormControl>
-                <Input placeholder="Title" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        onKeyDown={(e) => checkEnterKey(e)}
+        className="space-y-8"
+      >
+        <FormItem>
+          <FormLabel>Post Title</FormLabel>
+          <FormControl>
+            <Input placeholder="Title" {...register('title')} />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+        <FormItem>
+          <FormLabel>Upload thumbnail</FormLabel>
+          {isThumbnail ? (
+            <Image
+              src={getValues('thumbnail') as string}
+              alt="thumbnail"
+              width={200}
+              height={150}
+            />
+          ) : (
+            <UploadButton
+              endpoint="thumbnailUploader"
+              onClientUploadComplete={(res) => handleUploadThumbnail(res)}
+              onUploadError={(error: Error) => {
+                alert(`ERROR: ${error}`);
+              }}
+            />
           )}
-        />
+        </FormItem>
         <FormItem>
           <FormLabel>Tags</FormLabel>
           <TagInput tags={tags} setTags={setTags} />
@@ -91,7 +137,18 @@ export default function PostForm() {
             onChange={(text) => handleMDEditor(text)}
           />
         </FormItem>
-
+        <FormItem>
+          <FormLabel>Upload images</FormLabel>
+          <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              console.log(res);
+            }}
+            onUploadError={(error: Error) => {
+              alert(`ERROR: ${error}`);
+            }}
+          />
+        </FormItem>
         <Button type="submit">Submit</Button>
       </form>
     </Form>
