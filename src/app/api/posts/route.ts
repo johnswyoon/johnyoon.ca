@@ -1,3 +1,4 @@
+import { auth } from '@clerk/nextjs';
 import { Prisma } from '@prisma/client';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
@@ -6,6 +7,11 @@ import slugify from 'slugify';
 import prisma from '@/lib/db';
 
 export async function POST(req: NextRequest) {
+  const { userId } = auth();
+  if (userId !== process.env.NEXT_PUBLIC_ADMIN_ID) {
+    return NextResponse.json({ message: 'Access Forbidden' }, { status: 403 });
+  }
+
   const data = await req.json();
   const { tags, ...postData } = data;
 
