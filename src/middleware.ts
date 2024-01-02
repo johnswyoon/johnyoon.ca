@@ -8,6 +8,7 @@ export default authMiddleware({
     '/about',
     '/blog',
     '/api/uploadthing',
+    '/api/posts',
   ],
 });
 

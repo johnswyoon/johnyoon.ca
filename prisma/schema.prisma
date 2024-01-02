@@ -26,7 +26,7 @@ model Post {
   content   String
   thumbnail String?
   slug String @unique
-  published Boolean   @default(false)
+  published Boolean   @default(true)
   createdAt DateTime  @default(now()) @map(name: "created_at")
   comments  Comment[]
   tags      Tag[]
@@ -59,7 +59,7 @@ model Tag {
 
 model Album {
   id        String   @id @default(cuid())
-  name      String
+  name      String @unique
   slug String @unique
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")

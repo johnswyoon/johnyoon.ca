@@ -89,19 +89,21 @@ export async function POST(req: Request) {
             image: image_url,
           },
         });
+
+        console.log(`User upserted: ${userEmail}`);
+
+        return new Response(
+          `Successfully upserted user with email: ${userEmail}`,
+          {
+            status: 201,
+          },
+        );
       } catch (e) {
         if (e instanceof Prisma.PrismaClientKnownRequestError) {
           console.error(`Prisma Error creating/updating user: ${e.message}`);
         }
         throw e;
       }
-      console.log(`User upserted: ${userEmail}`);
-      return new Response(
-        `Succesfully upserted user with email: ${userEmail}`,
-        {
-          status: 201,
-        },
-      );
     case 'user.deleted':
       const user = await prisma.user.findUnique({
         where: {

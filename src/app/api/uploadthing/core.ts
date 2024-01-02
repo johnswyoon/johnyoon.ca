@@ -27,7 +27,7 @@ export const ourFileRouter = {
       return file.url;
     }),
 
-  imageUploader: f({ image: { maxFileSize: '4MB' } })
+  imageUploader: f({ image: { maxFileSize: '4MB', maxFileCount: 12 } })
     .middleware(async () => {
       const { userId } = auth();
 

@@ -13,7 +13,7 @@ import { type UploadFileResponse } from 'uploadthing/client';
 import { z } from 'zod';
 
 import TagInput from './TagInput';
-import { UploadButton } from './UploadButton';
+import { UploadButton, UploadDropzone } from './UploadButton';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -36,9 +36,14 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
+/*
+Component is for internal use (very messy...)
+*/
+
 export default function PostForm() {
   const [markdown, setMarkdown] = useState('# Heading');
   const [tags, setTags] = useState<string[]>([]);
+  const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [isThumbnail, setIsThumbnail] = useState(false);
 
   const form = useForm<FormSchema>({
@@ -88,9 +93,15 @@ export default function PostForm() {
     // and another for regular pics and put display links so user can copy
   }
 
-  function onSubmit(values: FormSchema) {
-    console.log(values);
-    // post with prisma
+  async function onSubmit(formData: FormSchema) {
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const data = await response.json();
+    console.log(123);
+    console.log(data);
   }
 
   return (
@@ -139,15 +150,28 @@ export default function PostForm() {
         </FormItem>
         <FormItem>
           <FormLabel>Upload images</FormLabel>
-          <UploadButton
+          <UploadDropzone
             endpoint="imageUploader"
             onClientUploadComplete={(res) => {
-              console.log(res);
+              const urls = res.map((img) => img.url);
+              setImageUrls(urls);
             }}
             onUploadError={(error: Error) => {
               alert(`ERROR: ${error}`);
             }}
           />
+          {imageUrls.length > 0 ? (
+            <ul className="list-none">
+              {imageUrls.map((img, index) => (
+                <li key={index}>
+                  <span>
+                    <Image src={img} width={100} height={75} alt={img} />
+                    <a href={img}>{img}</a>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </FormItem>
         <Button type="submit">Submit</Button>
       </form>
