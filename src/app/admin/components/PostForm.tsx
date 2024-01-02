@@ -24,6 +24,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useToast } from '@/components/ui/use-toast';
 
 const formSchema = z.object({
   title: z.string(),
@@ -46,6 +47,8 @@ export default function PostForm() {
   const [imageUrls, setImageUrls] = useState<string[]>([]);
   const [isThumbnail, setIsThumbnail] = useState(false);
 
+  const { toast } = useToast();
+
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,12 +60,12 @@ export default function PostForm() {
       tags: [],
     },
   });
-  const { register, getValues, setValue, handleSubmit, watch } = form;
+  const { register, getValues, setValue, handleSubmit, watch, reset } = form;
 
   const watchTitle = watch('title');
 
   useEffect(() => {
-    const slug = slugify(getValues('title'));
+    const slug = slugify(getValues('title')).toLowerCase();
     setValue('slug', slug);
   }, [getValues, setValue, watchTitle]);
 
@@ -87,21 +90,47 @@ export default function PostForm() {
     const thumbnailUrl = res[0].url;
     setValue('thumbnail', thumbnailUrl);
     setIsThumbnail(true);
+  }
 
-    // Add a toast for success
-    // maybe seperate out for thumbnial (auto put url)
-    // and another for regular pics and put display links so user can copy
+  function resetForm() {
+    reset();
+    setImageUrls([]);
+    setMarkdown('# Heading');
+    setIsThumbnail(false);
+    setTags([]);
   }
 
   async function onSubmit(formData: FormSchema) {
-    const response = await fetch('/api/posts', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    const data = await response.json();
-    console.log(123);
-    console.log(data);
+    try {
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        if (errorData.code === 'P2002-POST') {
+          resetForm();
+          return toast({
+            title: errorData.title,
+            description: errorData.description,
+            variant: 'destructive',
+          });
+        }
+      }
+
+      toast({
+        title: 'Post has been submitted succesfully',
+        variant: 'success',
+      });
+      resetForm();
+    } catch (e) {
+      toast({
+        title: 'Failed to submit post',
+        variant: 'destructive',
+      });
+    }
   }
 
   return (

@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { NavBar } from '@/components/NavBar/NavBar';
+import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,6 +26,7 @@ export default function RootLayout({
         <body className={cn('h-full antialiased', inter.className)}>
           <NavBar />
           {children}
+          <Toaster />
         </body>
       </ClerkProvider>
     </html>

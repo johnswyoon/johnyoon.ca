@@ -1,4 +1,6 @@
+import { Prisma } from '@prisma/client';
 import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import slugify from 'slugify';
 
 import prisma from '@/lib/db';
@@ -15,11 +17,13 @@ export async function POST(req: NextRequest) {
           where: { name: tagName },
         });
 
-        if (existingTag) existingTag;
+        if (existingTag) {
+          return existingTag;
+        }
         return prisma.tag.create({
           data: {
             name: tagName,
-            slug: slugify(tagName),
+            slug: slugify(tagName).toLowerCase(),
           },
         });
       }),
@@ -37,12 +41,28 @@ export async function POST(req: NextRequest) {
 
     console.log(`Post created: ${post.title}`);
 
-    return new Response(`Successfully created post: ${post.title}`, {
-      status: 201,
+    return NextResponse.json({
+      message: `Successfully created post: ${post.title}`,
     });
   } catch (error) {
     console.error(error);
 
-    return new Response(`Unabled to create post...`, { status: 500 });
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === 'P2002' && error?.meta?.modelName === 'Post') {
+        return NextResponse.json(
+          {
+            code: 'P2002-POST',
+            title: 'Unable to submit post',
+            description: 'Post name already exist',
+          },
+          { status: 400 },
+        );
+      }
+    }
+
+    return NextResponse.json(
+      { message: 'Unabled to create post...' },
+      { status: 400 },
+    );
   }
 }
