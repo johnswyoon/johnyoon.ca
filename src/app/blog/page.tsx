@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import BlogPostCard from '@/components/BlogPostCard';
@@ -25,15 +26,17 @@ export default function Blog() {
         <h1 className="text-4xl font-medium">Blogaz</h1>
         <div className="mt-10 grid grid-cols-3 gap-7">
           {posts.map((post) => {
-            const { id, title, thumbnail, createdAt, tags } = post;
+            const { id, title, thumbnail, slug, createdAt, tags } = post;
             return (
-              <BlogPostCard
-                key={id}
-                title={title}
-                thumbnail={thumbnail as string}
-                createdAt={createdAt as string}
-                tags={tags ?? []}
-              />
+              <Link href={`/blog/${slug}`} key={id}>
+                <BlogPostCard
+                  title={title}
+                  thumbnail={thumbnail as string}
+                  slug={slug}
+                  createdAt={createdAt as string}
+                  tags={tags ?? []}
+                />
+              </Link>
             );
           })}
         </div>

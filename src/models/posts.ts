@@ -28,6 +28,7 @@ export const postSchema = z.object({
   title: z.string(),
   content: z.string(),
   thumbnail: z.string().optional(),
+  slug: z.string(),
   published: z.boolean().default(true),
   createdAt: z.string(),
   comments: z.array(commentSchema).optional(),
