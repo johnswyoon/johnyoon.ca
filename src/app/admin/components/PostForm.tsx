@@ -102,7 +102,7 @@ export default function PostForm() {
 
   async function onSubmit(formData: FormSchema) {
     try {
-      const response = await fetch('/api/posts', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' },

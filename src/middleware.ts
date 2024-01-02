@@ -8,15 +8,11 @@ export default authMiddleware({
     '/about',
     '/blog',
     '/api/uploadthing',
+    '/api/post',
+    '/api/posts',
   ],
 });
 
 export const config = {
-  matcher: [
-    '/((?!.+\\.[\\w]+$|_next).*)',
-    '/',
-    '/(api|trpc)(.*)',
-    '/admin',
-    '/api/posts',
-  ],
+  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)', '/admin'],
 };

@@ -1,45 +1,23 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import BlogPostCard from '@/components/BlogPostCard';
 import { PageLayout } from '@/components/PageLayout';
+import { type Post, postSchema } from '@/models';
 
 export default function Blog() {
-  const posts = [
-    {
-      id: 1,
-      title: 'Title Lorem Ipfffffff Hello 1',
-      content: '# Title \n hello',
-      thumbnail:
-        'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww',
-      createdAt: new Date(),
-      tags: ['tag1', 'tag2', 'tag3'],
-    },
-    {
-      id: 2,
-      title: 'Title Lorem Ip 2',
-      content: '# Title \n hello',
-      thumbnail:
-        'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww',
-      createdAt: new Date(),
-      tags: ['tag1', 'tag2', 'tag3'],
-    },
-    {
-      id: 3,
-      title: 'Title Lorem Ip 33456 i',
-      content: '# Title \n hello',
-      thumbnail:
-        'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww',
-      createdAt: new Date(),
-      tags: ['tag1', 'tag2', 'tag3'],
-    },
-    {
-      id: 4,
-      title: 'Titlffe Lorem Ip 334',
-      content: '# Title \n hello',
-      thumbnail:
-        'https://images.unsplash.com/photo-1481349518771-20055b2a7b24?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tfGVufDB8fDB8fHww',
-      createdAt: new Date(),
-      tags: ['tag1', 'tag2', 'tag3'],
-    },
-  ];
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await fetch('/api/posts');
+      const data = await response.json();
+      const posts: Post[] = postSchema.array().parse(data);
+      setPosts(posts);
+    };
+    getPosts();
+  }, []);
 
   return (
     <PageLayout className="my-auto h-full">
@@ -47,14 +25,14 @@ export default function Blog() {
         <h1 className="text-4xl font-medium">Blogaz</h1>
         <div className="mt-10 grid grid-cols-3 gap-7">
           {posts.map((post) => {
-            const { title, thumbnail, createdAt, tags } = post;
+            const { id, title, thumbnail, createdAt, tags } = post;
             return (
               <BlogPostCard
-                key={post.id}
+                key={id}
                 title={title}
-                thumbnail={thumbnail}
-                createdAt={createdAt}
-                tags={tags}
+                thumbnail={thumbnail as string}
+                createdAt={createdAt as string}
+                tags={tags ?? []}
               />
             );
           })}
