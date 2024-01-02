@@ -19,6 +19,7 @@ export default function AdminPage() {
 
   return (
     <PageLayout className="max-w-screen-lg">
+      <h1 className="mb-2 text-center text-3xl font-semibold">Post Form</h1>
       <PostForm />
     </PageLayout>
   );

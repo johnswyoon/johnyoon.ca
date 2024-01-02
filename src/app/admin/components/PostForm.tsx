@@ -138,7 +138,7 @@ export default function PostForm() {
       <form
         onSubmit={handleSubmit(onSubmit)}
         onKeyDown={(e) => checkEnterKey(e)}
-        className="space-y-8"
+        className="mb-2 flex flex-col space-y-8"
       >
         <FormItem>
           <FormLabel>Post Title</FormLabel>
@@ -195,14 +195,16 @@ export default function PostForm() {
                 <li key={index}>
                   <span>
                     <Image src={img} width={100} height={75} alt={img} />
-                    <a href={img}>{img}</a>
+                    <p className="text-blue-500">{img}</p>
                   </span>
                 </li>
               ))}
             </ul>
           ) : null}
         </FormItem>
-        <Button type="submit">Submit</Button>
+        <Button className=" bg-cyan-900" type="submit">
+          Submit
+        </Button>
       </form>
     </Form>
   );
