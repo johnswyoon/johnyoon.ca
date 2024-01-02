@@ -23,7 +23,7 @@ model User {
 model Post {
   id        String    @id @default(cuid())
   title     String
-  content   String
+  content   String @db.Text
   thumbnail String?
   slug String @unique
   published Boolean   @default(true)
