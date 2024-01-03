@@ -3,24 +3,18 @@ import Image from 'next/image';
 import { Badge } from './ui/badge';
 
 import { formatDate } from '@/lib/utils';
-
-type BlogPostCardProps = {
-  title: string;
-  thumbnail: string;
-  createdAt: Date;
-  tags?: string[];
-};
+import type { Post } from '@/models';
 
 export default function BlogPostCard({
   title,
   thumbnail,
   createdAt,
   tags,
-}: BlogPostCardProps) {
+}: Partial<Post>) {
   return (
     <div className="flex max-w-sm flex-col">
       <Image
-        src={thumbnail}
+        src={thumbnail as string}
         className="mb-3 rounded-2xl"
         alt={`${title} thumbnail`}
         width={600}
@@ -28,10 +22,14 @@ export default function BlogPostCard({
       />
       <h2 className="mb-2 text-xl font-bold">{title}</h2>
       <div className="flex justify-between">
-        <div className="flex gap-2">
-          {tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
-        </div>
-        <p>{formatDate(createdAt)}</p>
+        {tags && (
+          <div className="flex gap-2">
+            {tags.map((tag) => (
+              <Badge key={tag.id}>{tag.name}</Badge>
+            ))}
+          </div>
+        )}
+        <p>{formatDate(createdAt as string)}</p>
       </div>
     </div>
   );
