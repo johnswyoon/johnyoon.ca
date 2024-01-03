@@ -6,6 +6,8 @@ import slugify from 'slugify';
 
 import prisma from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
   const { userId } = auth();
   if (userId !== process.env.NEXT_PUBLIC_ADMIN_ID) {
