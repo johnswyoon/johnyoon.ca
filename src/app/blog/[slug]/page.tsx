@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -28,7 +29,15 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   return (
     <PageLayout className="h-full, my-auto max-w-screen-md">
-      <h1>{post.title}</h1>
+      <div className="flex flex-col items-center">
+        <h1 className="text-3xl font-semibold">{post.title}</h1>
+        <Image
+          src={post.thumbnail as string}
+          width={400}
+          height={300}
+          alt="thumbnail"
+        />
+      </div>
       <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
         {post.content}
       </Markdown>
