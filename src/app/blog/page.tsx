@@ -1,6 +1,5 @@
 'use client';
 
-import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -12,7 +11,6 @@ export default function Blog() {
 
   useEffect(() => {
     const getPosts = async () => {
-      noStore();
       const response = await fetch('/api/posts');
       const data = await response.json();
       const posts: Post[] = postSchema.array().parse(data);
