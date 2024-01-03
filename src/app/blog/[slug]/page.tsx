@@ -6,6 +6,7 @@ import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
+import { CommentSection } from '@/components/Comment/comments';
 import { PageLayout } from '@/components/PageLayout';
 import { type Post, postSchema } from '@/models';
 
@@ -38,9 +39,14 @@ export default function Post({ params }: { params: { slug: string } }) {
           alt="thumbnail"
         />
       </div>
-      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+      <Markdown
+        className="mb-4"
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+      >
         {post.content}
       </Markdown>
+      <CommentSection />
     </PageLayout>
   );
 }
