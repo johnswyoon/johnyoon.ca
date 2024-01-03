@@ -1,17 +1,18 @@
 'use client';
 
+import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import BlogPostCard from '@/components/BlogPostCard';
 import { PageLayout } from '@/components/PageLayout';
 import { type Post, postSchema } from '@/models';
-
 export default function Blog() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const getPosts = async () => {
+      noStore();
       const response = await fetch('/api/posts');
       const data = await response.json();
       const posts: Post[] = postSchema.array().parse(data);
