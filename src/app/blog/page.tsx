@@ -31,7 +31,6 @@ export default function Blog() {
                 <BlogPostCard
                   title={title}
                   thumbnail={thumbnail as string}
-                  slug={slug}
                   createdAt={createdAt as string}
                   tags={tags ?? []}
                 />

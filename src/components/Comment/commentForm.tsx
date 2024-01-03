@@ -9,11 +9,13 @@ import { Button } from '../ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Form, FormControl, FormItem } from '@/components/ui/form';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 import { getInitials } from '@/lib/utils';
 import { type CommentForm, commentFormSchema } from '@/models';
 
-export function CommentForm() {
+export function CommentForm({ slug }: { slug: string }) {
   const { isLoaded, isSignedIn, user } = useUser();
+  const { toast } = useToast();
 
   const form = useForm<CommentForm>({
     resolver: zodResolver(commentFormSchema),
@@ -21,9 +23,36 @@ export function CommentForm() {
       content: '',
     },
   });
-  const { register, handleSubmit } = form;
+  const { register, reset, handleSubmit } = form;
 
-  async function onSubmit() {}
+  async function onSubmit(formData: CommentForm) {
+    try {
+      const response = await fetch(`/api/comment/${slug}`, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) {
+        reset();
+        return toast({
+          title: 'Failed to submit comment',
+          variant: 'destructive',
+        });
+      }
+
+      toast({
+        title: 'Comment posted!',
+        variant: 'success',
+      });
+      reset();
+    } catch (e) {
+      toast({
+        title: 'Failed to submit comment',
+        variant: 'destructive',
+      });
+    }
+  }
 
   if (!isLoaded) return null;
 

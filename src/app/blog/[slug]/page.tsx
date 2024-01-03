@@ -46,7 +46,7 @@ export default function Post({ params }: { params: { slug: string } }) {
       >
         {post.content}
       </Markdown>
-      <CommentSection />
+      <CommentSection slug={slug} />
     </PageLayout>
   );
 }
