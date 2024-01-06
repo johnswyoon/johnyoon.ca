@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
-import { Button } from '../ui/button';
+import { Button } from '../../../../components/ui/button';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Form, FormControl, FormItem } from '@/components/ui/form';

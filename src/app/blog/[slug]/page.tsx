@@ -3,7 +3,7 @@ import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
-import { CommentSection } from '@/components/Comment/comments';
+import { CommentSection } from '@/app/blog/components/Comment/comments';
 import { PageLayout } from '@/components/PageLayout';
 import { getPost } from '@/lib/posts';
 
