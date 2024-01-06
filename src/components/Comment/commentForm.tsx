@@ -1,7 +1,8 @@
 'use client';
 
-import { useUser } from '@clerk/nextjs';
+import { useClerk, useUser } from '@clerk/nextjs';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '../ui/button';
@@ -15,7 +16,10 @@ import { type CommentForm, commentFormSchema } from '@/models';
 
 export function CommentForm({ slug }: { slug: string }) {
   const { isLoaded, isSignedIn, user } = useUser();
+  const { openSignIn } = useClerk();
   const { toast } = useToast();
+
+  const pathname = usePathname();
 
   const form = useForm<CommentForm>({
     resolver: zodResolver(commentFormSchema),
@@ -26,6 +30,8 @@ export function CommentForm({ slug }: { slug: string }) {
   const { register, reset, handleSubmit } = form;
 
   async function onSubmit(formData: CommentForm) {
+    if (!user) return openSignIn({ afterSignInUrl: pathname });
+
     try {
       const response = await fetch(`/api/comment/${slug}`, {
         method: 'POST',
