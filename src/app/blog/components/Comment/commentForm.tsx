@@ -2,7 +2,8 @@
 
 import { useClerk, useUser } from '@clerk/nextjs';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '../../../../components/ui/button';
@@ -15,11 +16,12 @@ import { getInitials } from '@/lib/utils';
 import { type CommentForm, commentFormSchema } from '@/models';
 
 export function CommentForm({ slug }: { slug: string }) {
+  const [isPending, startTransition] = useTransition();
   const { isLoaded, isSignedIn, user } = useUser();
   const { openSignIn } = useClerk();
   const { toast } = useToast();
-
   const pathname = usePathname();
+  const router = useRouter();
 
   const form = useForm<CommentForm>({
     resolver: zodResolver(commentFormSchema),
@@ -51,7 +53,11 @@ export function CommentForm({ slug }: { slug: string }) {
         title: 'Comment posted!',
         variant: 'success',
       });
-      reset();
+
+      startTransition(() => {
+        reset();
+        router.refresh();
+      });
     } catch (e) {
       toast({
         title: 'Failed to submit comment',
@@ -89,6 +95,7 @@ export function CommentForm({ slug }: { slug: string }) {
                 <Textarea
                   className=" min-h-10 resize-none overflow-y-hidden p-3"
                   placeholder="Write a comment"
+                  disabled={isPending}
                   {...register('content')}
                 />
               </FormControl>
