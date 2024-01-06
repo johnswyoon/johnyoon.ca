@@ -1,21 +1,26 @@
+import { Comment } from './comment';
 import { CommentForm } from './commentForm';
 
-import { getComments } from '@/lib/comments';
+import { type Comment as CommentType } from '@/models';
 
-export async function CommentSection({ slug }: { slug: string }) {
-  const comments = await getComments(slug);
-
-  if (!comments) return null;
-
+export async function CommentSection({
+  comments,
+  slug,
+}: {
+  comments: CommentType[];
+  slug: string;
+}) {
   return (
-    <div>
-      <h1 className="text-xl font-medium">Comments</h1>
+    <div className="mb-6">
+      <h1 className="mb-4 text-xl font-medium">Comments</h1>
       <CommentForm slug={slug} />
-      <ul>
-        {comments.map((comment) => {
-          return <li key={comment.id}>{comment.content}</li>;
-        })}
-      </ul>
+      {comments.length > 0 ? (
+        comments.map((comment) => {
+          return <Comment key={comment.id} {...comment} />;
+        })
+      ) : (
+        <p>No comments yet...</p>
+      )}
     </div>
   );
 }

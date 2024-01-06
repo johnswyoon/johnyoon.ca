@@ -36,7 +36,7 @@ model Post {
 
 model Comment {
   id        String   @id @default(cuid())
-  content   String
+  content   String @db.Text
   createdAt DateTime @default(now()) @map(name: "created_at")
 
   postId String

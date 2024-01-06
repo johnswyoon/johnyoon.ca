@@ -33,7 +33,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
       >
         {post.content}
       </Markdown>
-      <CommentSection slug={slug} />
+      <CommentSection comments={post.comments ?? []} slug={slug} />
     </PageLayout>
   );
 }

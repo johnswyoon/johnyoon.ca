@@ -12,6 +12,11 @@ export async function getPost(slug: string) {
         slug,
       },
       include: {
+        comments: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+        },
         tags: true,
       },
     });
@@ -37,6 +42,9 @@ export async function getPosts() {
       include: {
         comments: true,
         tags: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
       },
     });
 

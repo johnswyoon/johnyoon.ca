@@ -66,11 +66,11 @@ export function CommentForm({ slug }: { slug: string }) {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mb-2 flex flex-col space-y-8"
+        className="mb-4 flex flex-col space-y-8"
       >
         <FormItem>
           <div className="grid grid-cols-12 gap-2">
-            <div className="col-span-1 grid">
+            <div className="col-span-1">
               {isSignedIn ? (
                 <Avatar>
                   <AvatarImage src={user.imageUrl ?? ''} />
@@ -84,7 +84,7 @@ export function CommentForm({ slug }: { slug: string }) {
                 </Avatar>
               )}
             </div>
-            <div className="col-span-10 grid">
+            <div className="col-span-10">
               <FormControl>
                 <Textarea
                   className=" min-h-10 resize-none overflow-y-hidden p-3"
@@ -93,7 +93,7 @@ export function CommentForm({ slug }: { slug: string }) {
                 />
               </FormControl>
             </div>
-            <div className="col-span-1 grid">
+            <div className="col-span-1">
               <Button>Submit</Button>
             </div>
           </div>
