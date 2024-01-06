@@ -4,6 +4,38 @@ import { NextResponse } from 'next/server';
 
 import prisma from '@/lib/db';
 
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { slug: string } },
+) {
+  const { slug } = params;
+  try {
+    const post = await prisma.post.findUnique({
+      where: {
+        slug,
+      },
+      include: {
+        comments: true,
+      },
+    });
+
+    if (!post?.id) {
+      return NextResponse.json({ message: 'Post not found' }, { status: 400 });
+    }
+
+    if (post.comments) {
+      return NextResponse.json(post.comments, { status: 200 });
+    }
+    return NextResponse.json('Post has no comments.', { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      { message: 'Unable to get posts' },
+      { status: 400 },
+    );
+  }
+}
+
 export async function POST(
   req: NextRequest,
   { params }: { params: { slug: string } },

@@ -5,14 +5,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatDate(date: string) {
+export function formatDate(date: Date) {
   const options = {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   } as const;
 
-  return new Date(date).toLocaleDateString('en-US', options);
+  return date.toLocaleDateString('en-US', options);
 }
 
 export function getInitials(name: string) {

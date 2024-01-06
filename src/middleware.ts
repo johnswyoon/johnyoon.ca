@@ -9,6 +9,7 @@ export default authMiddleware({
     '/blog',
     '/blog/(.*)',
     '/api/uploadthing',
+    '/api/comment/(.*)',
     '/api/post',
     '/api/post/(.*)',
     '/api/posts',

@@ -23,7 +23,7 @@ export const postSchema = z.object({
   thumbnail: z.string().optional(),
   slug: z.string(),
   published: z.boolean().default(true),
-  createdAt: z.string(),
+  createdAt: z.date(),
   comments: z.array(commentSchema).optional(),
   tags: z.array(tagSchema).optional(),
 });
