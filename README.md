@@ -2,9 +2,10 @@
 
 - Next.js 14
 - Tailwind CSS
+- shadcn/ui
+- Clerk Auth
 - Prisma
-- Postgres
-- tRPC
+- Planetscale (MySQL)
 
 ## Getting Started
 
