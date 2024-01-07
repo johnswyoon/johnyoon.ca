@@ -1,27 +1,15 @@
-'use client';
-
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import Markdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 
+import { CommentSection } from '@/app/blog/components/Comment/comments';
 import { PageLayout } from '@/components/PageLayout';
-import { type Post, postSchema } from '@/models';
+import { getPost } from '@/lib/posts';
 
-export default function Post({ params }: { params: { slug: string } }) {
+export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const [post, setPost] = useState<Post>();
-
-  useEffect(() => {
-    const getPost = async () => {
-      const response = await fetch(`/api/post/${slug}`);
-      const data = await response.json();
-      const post: Post = postSchema.parse(data);
-      setPost(post);
-    };
-    getPost();
-  }, [slug]);
+  const post = await getPost(slug);
 
   if (!post) {
     return null; // TODO: set an empty blog page
@@ -38,9 +26,14 @@ export default function Post({ params }: { params: { slug: string } }) {
           alt="thumbnail"
         />
       </div>
-      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+      <Markdown
+        className="mb-4"
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+      >
         {post.content}
       </Markdown>
+      <CommentSection comments={post.comments ?? []} slug={slug} />
     </PageLayout>
   );
 }

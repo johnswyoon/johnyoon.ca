@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import slugify from 'slugify';
 import { type UploadFileResponse } from 'uploadthing/client';
-import { z } from 'zod';
 
 import TagInput from './TagInput';
 import { UploadButton, UploadDropzone } from './UploadButton';
@@ -25,17 +24,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
-
-const formSchema = z.object({
-  title: z.string(),
-  content: z.string(),
-  thumbnail: z.string().optional(),
-  slug: z.string(),
-  published: z.boolean(),
-  tags: z.array(z.string()).optional(),
-});
-
-type FormSchema = z.infer<typeof formSchema>;
+import { type PostForm, postFormSchema } from '@/models';
 
 /*
 Component is for internal use (very messy...)
@@ -49,8 +38,8 @@ export default function PostForm() {
 
   const { toast } = useToast();
 
-  const form = useForm<FormSchema>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<PostForm>({
+    resolver: zodResolver(postFormSchema),
     defaultValues: {
       title: '',
       content: markdown,
@@ -100,7 +89,7 @@ export default function PostForm() {
     setTags([]);
   }
 
-  async function onSubmit(formData: FormSchema) {
+  async function onSubmit(formData: PostForm) {
     try {
       const response = await fetch('/api/post', {
         method: 'POST',

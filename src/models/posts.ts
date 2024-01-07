@@ -1,14 +1,7 @@
 import type { ZodType } from 'zod';
 import { z } from 'zod';
 
-export const commentSchema = z.object({
-  id: z.string(),
-  content: z.string(),
-  createdAt: z.string(),
-  postId: z.string(),
-  userId: z.string(),
-});
-export type Comment = z.infer<typeof commentSchema>;
+import { commentSchema } from './comments';
 
 // https://github.com/colinhacks/zod?tab=readme-ov-file#recursive-types
 const baseTagSchema = z.object({
@@ -30,8 +23,19 @@ export const postSchema = z.object({
   thumbnail: z.string().optional(),
   slug: z.string(),
   published: z.boolean().default(true),
-  createdAt: z.string(),
+  createdAt: z.date(),
   comments: z.array(commentSchema).optional(),
   tags: z.array(tagSchema).optional(),
 });
 export type Post = z.infer<typeof postSchema>;
+
+export const postFormSchema = z.object({
+  title: z.string(),
+  content: z.string(),
+  thumbnail: z.string().optional(),
+  slug: z.string(),
+  published: z.boolean(),
+  tags: z.array(z.string()).optional(),
+});
+
+export type PostForm = z.infer<typeof postFormSchema>;

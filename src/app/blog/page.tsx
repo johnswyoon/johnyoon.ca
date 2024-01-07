@@ -1,23 +1,13 @@
-'use client';
-
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-
-import BlogPostCard from '@/components/BlogPostCard';
+import BlogPostCard from '@/app/blog/components/BlogPostCard';
 import { PageLayout } from '@/components/PageLayout';
-import { type Post, postSchema } from '@/models';
-export default function Blog() {
-  const [posts, setPosts] = useState<Post[]>([]);
+import { getPosts } from '@/lib/posts';
 
-  useEffect(() => {
-    const getPosts = async () => {
-      const response = await fetch('/api/posts');
-      const data = await response.json();
-      const posts: Post[] = postSchema.array().parse(data);
-      setPosts(posts);
-    };
-    getPosts();
-  }, []);
+export default async function Blog() {
+  const posts = await getPosts();
+
+  if (!posts) {
+    return null;
+  }
 
   return (
     <PageLayout className="my-auto h-full">
@@ -25,18 +15,8 @@ export default function Blog() {
         <h1 className="text-4xl font-medium">Blogaz</h1>
         <div className="mt-10 grid grid-cols-3 gap-7">
           {posts.map((post) => {
-            const { id, title, thumbnail, slug, createdAt, tags } = post;
-            return (
-              <Link href={`/blog/${slug}`} key={id}>
-                <BlogPostCard
-                  title={title}
-                  thumbnail={thumbnail as string}
-                  slug={slug}
-                  createdAt={createdAt as string}
-                  tags={tags ?? []}
-                />
-              </Link>
-            );
+            if (!post) return;
+            return <BlogPostCard key={post.id} {...post} />;
           })}
         </div>
       </div>

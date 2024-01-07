@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { getInitials } from '@/lib/utils';
 
 export default function ProfileDropdown() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -65,13 +66,4 @@ export default function ProfileDropdown() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
-
-function getInitials(name: string) {
-  if (name.length > 0) {
-    const nameSplit = name.split(' ');
-    const initials = nameSplit.map((name) => name[0].toUpperCase()).join('');
-    return initials;
-  }
-  return 'ERR';
 }

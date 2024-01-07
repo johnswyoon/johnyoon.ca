@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 import profile from '../../../public/profile.jpg';
 
+import { SocialSection } from '@/app/about/components/SocialSection';
+import { WorkExperience } from '@/app/about/components/WorkExperience';
 import { PageLayout } from '@/components/PageLayout';
 import Paragraph from '@/components/Paragraph';
-import { SocialSection } from '@/components/SocialSection';
-import { WorkExperience } from '@/components/WorkExperience';
 
 export default function About() {
   return (

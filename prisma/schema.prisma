@@ -36,16 +36,18 @@ model Post {
 
 model Comment {
   id        String   @id @default(cuid())
-  content   String
+  content   String @db.Text
   createdAt DateTime @default(now()) @map(name: "created_at")
 
-  postId String @unique
+  postId String
   post   Post   @relation(fields: [postId], references: [id])
 
-  userId String @unique
+  userId String
   user   User   @relation(fields: [userId], references: [id])
 
   @@map(name: "comments")
+  @@index([postId])
+  @@index([userId])
 }
 
 model Tag {
