@@ -1,5 +1,5 @@
-import { Comment } from './comment';
-import { CommentForm } from './commentForm';
+import Comment from './Comment';
+import CommentForm from './CommentForm';
 
 import { type Comment as CommentType } from '@/models';
 

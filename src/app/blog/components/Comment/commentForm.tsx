@@ -15,7 +15,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { getInitials } from '@/lib/utils';
 import { type CommentForm, commentFormSchema } from '@/models';
 
-export function CommentForm({ slug }: { slug: string }) {
+export default function CommentForm({ slug }: { slug: string }) {
   const [isPending, startTransition] = useTransition();
   const { isLoaded, isSignedIn, user } = useUser();
   const { openSignIn } = useClerk();
