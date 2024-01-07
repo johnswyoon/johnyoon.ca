@@ -27,7 +27,12 @@ export async function Comment({ content, createdAt, userId }: CommentType) {
           <p className="mr-2 text-sm font-semibold">{user.name}</p>
           <p className="text-xs">{formatDateTime(createdAt)}</p>
         </div>
-        <p className="text-pretty text-sm font-normal">{content}</p>
+        <p
+          className="text-pretty text-sm font-normal"
+          style={{ whiteSpace: 'pre-line' }}
+        >
+          {content}
+        </p>
       </div>
     </div>
   );

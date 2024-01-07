@@ -93,8 +93,7 @@ export function CommentForm({ slug }: { slug: string }) {
             <div className="col-span-10">
               <FormControl>
                 <Textarea
-                  className=" min-h-10 resize-none overflow-y-hidden p-3"
-                  placeholder="Write a comment"
+                  placeholder="Write a comment..."
                   disabled={isPending}
                   {...register('content')}
                 />
