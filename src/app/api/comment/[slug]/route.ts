@@ -25,7 +25,7 @@ export async function POST(
       },
     });
 
-    if (!post?.id) {
+    if (!post) {
       return NextResponse.json({ message: 'Post not found' }, { status: 400 });
     }
 
