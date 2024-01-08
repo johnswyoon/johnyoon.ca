@@ -16,6 +16,7 @@ export function formatDate(date: Date) {
 }
 
 export function formatDateTime(date: Date) {
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const options = {
     year: 'numeric',
     month: 'short',
@@ -23,6 +24,7 @@ export function formatDateTime(date: Date) {
     hour: 'numeric',
     minute: 'numeric',
     hour12: true,
+    userTimeZone,
   } as const;
 
   return new Intl.DateTimeFormat('en-US', options).format(date);
