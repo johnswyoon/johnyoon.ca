@@ -1,4 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en';
 import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
@@ -15,19 +17,10 @@ export function formatDate(date: Date) {
   return date.toLocaleDateString('en-US', options);
 }
 
-export function formatDateTime(date: Date) {
-  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const options = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: true,
-    userTimeZone,
-  } as const;
-
-  return new Intl.DateTimeFormat('en-US', options).format(date);
+TimeAgo.addDefaultLocale(en);
+export function getTimeAgo(date: Date) {
+  const timeAgo = new TimeAgo('en-US');
+  return timeAgo.format(date);
 }
 
 export function getInitials(name: string) {

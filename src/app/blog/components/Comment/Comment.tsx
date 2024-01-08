@@ -2,7 +2,8 @@ import DeleteComment from './DeleteComment';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getUser } from '@/lib/users';
-import { formatDateTime, getInitials } from '@/lib/utils';
+import { getInitials } from '@/lib/utils';
+import { getTimeAgo } from '@/lib/utils';
 import { type Comment as CommentType } from '@/models';
 
 export default async function Comment({
@@ -34,7 +35,7 @@ export default async function Comment({
       <div className="col-span-11 flex flex-col ">
         <div className="flex items-center">
           <p className="mr-2 text-sm font-semibold">{commentUser.name}</p>
-          <p className="text-xs">{formatDateTime(createdAt)}</p>
+          <p className="text-xs">{getTimeAgo(createdAt)}</p>
           <DeleteComment commentId={id} userId={userId} />
         </div>
         <p
