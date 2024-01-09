@@ -2,13 +2,13 @@ import './globals.css';
 
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 
 import { NavBar } from '@/components/NavBar/NavBar';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 
-const inter = Inter({ subsets: ['latin'] });
+const nunitoSans = Nunito_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'John Yoon',
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="w-full">
       <ClerkProvider>
-        <body className={cn('h-full antialiased', inter.className)}>
+        <body className={cn('h-full antialiased', nunitoSans.className)}>
           <NavBar />
           {children}
           <Toaster />

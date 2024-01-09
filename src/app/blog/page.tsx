@@ -10,7 +10,7 @@ export default async function Blog() {
   }
 
   return (
-    <PageLayout className="my-auto h-full">
+    <PageLayout>
       <div className="flex flex-col items-center">
         <h1 className="text-4xl font-medium">Blogaz</h1>
         <div className="mt-10 grid grid-cols-3 gap-7">

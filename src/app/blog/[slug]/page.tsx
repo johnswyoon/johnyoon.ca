@@ -16,7 +16,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <PageLayout className="h-full, my-auto max-w-screen-md">
+    <PageLayout className="max-w-screen-md">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-semibold">{post.title}</h1>
         <Image

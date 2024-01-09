@@ -1,64 +1,52 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-
-import { Button } from '../../../components/ui/button';
-
-import { cn } from '@/lib/utils';
 
 export type SocialSectionProps = {
   icon: ReactNode;
   link: string;
-  title: string;
-  color: string;
+  name: string;
 };
 export function SocialSection() {
   const socials: SocialSectionProps[] = [
     {
-      icon: <Linkedin size={20} />,
+      icon: <Linkedin size={30} />,
       link: 'https://www.linkedin.com/in/johnswyoon/',
-      title: 'Linkedin',
-      color: 'bg-sky-700',
+      name: 'johnswyoon',
     },
     {
-      icon: <Github size={20} />,
+      icon: <Github size={30} />,
       link: 'https://github.com/johnswyoon',
-      title: 'Github',
-      color: '',
+      name: 'johnswyoon',
     },
     {
-      icon: <Mail size={20} />,
+      icon: <Instagram size={30} />,
+      link: 'https://www.instagram.com/aycejohn',
+      name: 'johnswyoon',
+    },
+    {
+      icon: <></>,
       link: 'mailto:johnswyoon@gmail.com',
-      title: 'Email',
-      color: 'bg-red-700',
+      name: 'johnswyoon@gmail.com',
     },
   ];
 
   return (
     <div>
-      {socials.map((social) => {
-        const { icon, link, title, color } = social;
-        return (
-          <SocialRow
-            icon={icon}
-            link={link}
-            title={title}
-            color={color}
-            key={title}
-          />
-        );
+      {socials.map((social, index) => {
+        return <SocialRow key={index} {...social} />;
       })}
     </div>
   );
 }
 
-function SocialRow({ icon, link, title, color }: SocialSectionProps) {
+function SocialRow({ icon, link, name }: SocialSectionProps) {
   return (
-    <Button className={cn('my-0.5 h-8 w-full rounded-full', color)} asChild>
-      <Link href={link} target="_blank" rel="noopener noreferrer">
-        <div className="flex items-center gap-2">{icon}</div>
-        <p>{title}</p>
-      </Link>
-    </Button>
+    <Link href={link} target="_blank" rel="noopener noreferrer">
+      <div className="mb-3 flex items-center justify-center">
+        {icon}
+        <p className="ml-2 text-xl font-light tracking-wider">{name}</p>
+      </div>
+    </Link>
   );
 }
