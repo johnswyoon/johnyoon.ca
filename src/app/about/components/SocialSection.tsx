@@ -7,7 +7,7 @@ export type SocialSectionProps = {
   link: string;
   name: string;
 };
-export function SocialSection() {
+export default function SocialSection() {
   const socials: SocialSectionProps[] = [
     {
       icon: <Linkedin size={30} />,

@@ -6,6 +6,9 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' }, // TODO: remove once endpoint created
       { protocol: 'https', hostname: 'utfs.io' },
       { protocol: 'https', hostname: 'res.cloudinary.com' }, // TODO: remove...?
+      { protocol: 'https', hostname: 'images.genius.com' }, // Album Cover
+      { protocol: 'https', hostname: 'i1.sndcdn.com' }, // Album Cover
+      { protocol: 'https', hostname: 'i.scdn.co' }, // Album Cover
     ],
   },
 };

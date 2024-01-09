@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
 
-export function WorkExperience({ className }: { className?: string }) {
+export default function WorkExperience({ className }: { className?: string }) {
   const workExperience: ExperienceItemProps[] = [
     {
       company: 'Canvass AI',

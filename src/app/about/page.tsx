@@ -1,7 +1,9 @@
 import Image from 'next/image';
 
-import { SocialSection } from '@/app/about/components/SocialSection';
-import { WorkExperience } from '@/app/about/components/WorkExperience';
+import MusicSection from './components/MusicSection';
+
+import SocialSection from '@/app/about/components/SocialSection';
+import WorkExperience from '@/app/about/components/WorkExperience';
 import { PageLayout } from '@/components/PageLayout';
 
 export default function About() {
@@ -22,9 +24,10 @@ export default function About() {
             <SocialSection />
           </div>
         </div>
-        <div className="col-span-3 ml-6 mt-8">
-          <h1 className="mb-6">Hi, I'm John</h1>
+        <div className="col-span-3 ml-6 mt-8 flex flex-col gap-5">
+          <h1 className="mb-4">Hi, I'm John</h1>
           <IntroParagraph />
+          <MusicSection />
           <WorkExperience className="mt-8" />
         </div>
       </div>
