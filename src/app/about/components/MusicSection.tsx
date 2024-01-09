@@ -45,7 +45,7 @@ const songList: Song[] = [
 export default function MusicSection() {
   return (
     <div>
-      <h2>Currently listening to...</h2>
+      <h2 className="text-2xl font-bold">Currently listening to...</h2>
       <div>
         {songList.map((song) => {
           return <SongCard key={song.url} {...song} />;
