@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import profile from '../../../public/profile.jpg';
-
 import { SocialSection } from '@/app/about/components/SocialSection';
 import { WorkExperience } from '@/app/about/components/WorkExperience';
 import { PageLayout } from '@/components/PageLayout';
@@ -13,9 +11,10 @@ export default function About() {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
         <div className="col-span-1 flex flex-col items-center">
           <Image
-            src={profile}
+            src="/profile.jpg"
             alt="John's Profile Picture"
             className="mb-4 rounded-full"
+            height={250}
             width={250}
           />
           <div>
