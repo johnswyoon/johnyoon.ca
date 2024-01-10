@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/accordion';
 import { cn } from '@/lib/utils';
 
-export function WorkExperience({ className }: { className?: string }) {
+export default function WorkExperience({ className }: { className?: string }) {
   const workExperience: ExperienceItemProps[] = [
     {
       company: 'Canvass AI',
@@ -46,7 +46,7 @@ export function WorkExperience({ className }: { className?: string }) {
   ];
   return (
     <div className={cn(className)}>
-      <h2 className="text-xl font-semibold">Work Experience</h2>
+      <h2 className="text-2xl font-bold">Work Experience</h2>
       <Accordion type="single" collapsible>
         {workExperience.map((experience) => {
           const { company, title, description, date } = experience;
