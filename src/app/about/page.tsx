@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import MusicSection from './components/MusicSection';
 
+// import WorkExperience from '@/app/about/components/WorkExperience';
 import SocialSection from '@/app/about/components/SocialSection';
-import WorkExperience from '@/app/about/components/WorkExperience';
 import { PageLayout } from '@/components/PageLayout';
 
 export default function About() {
@@ -28,7 +29,7 @@ export default function About() {
           <h1 className="mb-4">Hi, I'm John</h1>
           <IntroParagraph />
           <MusicSection />
-          <WorkExperience className="mt-8" />
+          {/* <WorkExperience /> */}
         </div>
       </div>
     </PageLayout>
@@ -39,22 +40,30 @@ function IntroParagraph() {
   return (
     <div>
       <p className="mb-3">
-        I'm entering my 4B term studying Computer Engineering at the University
-        of Waterloo. Currently, I am interning at Canvass AI as a Software
-        Engineer!
+        I recently just finished my internship at{' '}
+        <strong>
+          <Link href="https://www.canvass.io/">Canvass AI</Link>
+        </strong>{' '}
+        as a software engineer! Currently, I am in my 4B term at the{' '}
+        <strong>University of Waterloo</strong> studying Computer Engineering.
       </p>
       <p className="mb-3">
-        When I'm not doing things related to engineering, you can find me taking
-        photos of my friends, attempting to play guitar, or cheering for the
-        Toronto Raptors!
+        I would love to connect and chat with you about any new-grad SWE
+        opportunities. Connect with me on Linkedin or e-mail with the links on
+        the left
       </p>
+      {/* <p>
+        Here is a link to my{' '}
+        <Link href="/" className="text-blue-600">
+          current resume
+        </Link>
+        .
+      </p> */}
       <p className="mb-3">
-        You may wonder what the "ㅅㅇ" symbols mean on the top left of my site!
-        They are the Korean consonants that make up my name, 승원. My
-        grandfather had chosen the meaning of my name: 勝垣 meaning victory and
-        wall. Before you ask... no, I am not good at Korean.
+        When I'm not doing anything related to engineering, you can find me
+        taking photos of my friends, attempting to play guitar, or cheering for
+        the Toronto Raptors!
       </p>
-      <p>I also like to slap on my Sony XM4's and listen to music:</p>
     </div>
   );
 }
