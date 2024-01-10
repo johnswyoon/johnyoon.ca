@@ -17,31 +17,28 @@ const songList: Song[] = [
     title: '같애 (feat. SHIRT)',
     album: 'You Might (feat. SHIRT)',
     artist: 'g0nny (거니), SHIRT',
-    image:
-      'https://images.genius.com/62bb55d045736f0c80fd43cecfe5efa3.1000x1000x1.png',
+    image: '/songs/g0nny.png',
     url: 'https://open.spotify.com/track/340yvMO5adu3bo1x5Zrw14?si=9a200fa62b83464e',
   },
   {
     title: 'Say love in words, not love',
     album: 'Say love in words, not love',
     artist: 'siso',
-    image: 'https://i.scdn.co/image/ab67616d0000b2731f1333f2baeadb12b599d45d',
+    image: '/songs/siso.jpeg',
     url: 'https://open.spotify.com/track/5H8LiMJcD5Kuxj4A3mrkh4?si=411af3339b404a46',
   },
   {
     title: 'Oncle Jazz',
     album: 'Oncle Jazz',
     artist: 'Men I Trust',
-    image:
-      'https://images.genius.com/34ed474ecfe7cd7a6dad1db0c762eb12.1000x1000x1.jpg',
+    image: '/songs/oncle_jazz.jpg',
     url: 'https://open.spotify.com/track/204t5SErksNRHRhU52g5JF?si=27fb026bda094c87',
   },
   {
     title: 'After Last Night',
     album: 'An Evening with Silk Sonic',
     artist: 'Bruno Mars, Anderson .Paak, Silk Sonic',
-    image:
-      'https://images.genius.com/77981e411ef0855dea70b61f07982338.300x300x1.jpg',
+    image: '/songs/after_last_night.jpg',
     url: 'https://open.spotify.com/track/6jGAh1bFnXt1Muj9zeHveZ?si=3f52dcfdeb294674',
   },
 ];
