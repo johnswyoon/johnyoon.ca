@@ -41,6 +41,7 @@ export async function POST(req: NextRequest) {
     const post = await prisma.post.create({
       data: {
         ...postData,
+        published: true,
         tags: {
           connect: createdTags.map((tag) => ({ id: tag.id })),
         },
