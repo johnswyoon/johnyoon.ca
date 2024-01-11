@@ -32,14 +32,14 @@ export default async function Comment({
           </Avatar>
         )}
       </div>
-      <div className="col-span-11 flex flex-col ">
+      <div className="col-span-11 ml-3 flex flex-col sm:ml-0">
         <div className="flex items-center">
           <p className="mr-2 text-sm font-semibold">{commentUser.name}</p>
           <p className="text-xs">{getTimeAgo(createdAt)}</p>
           <DeleteComment commentId={id} userId={userId} />
         </div>
         <p
-          className="text-pretty text-sm font-normal"
+          className="text-pretty text-base font-normal"
           style={{ whiteSpace: 'pre-line' }}
         >
           {content}

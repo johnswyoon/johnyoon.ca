@@ -12,7 +12,7 @@ export async function CommentSection({
 }) {
   return (
     <div className="mb-6">
-      <h1 className="mb-4 text-xl font-medium">Comments</h1>
+      <h1 className="mb-4 text-xl font-medium">{`Comments (${comments.length})`}</h1>
       <CommentForm slug={slug} />
       {comments.length > 0 ? (
         comments.map((comment) => {
