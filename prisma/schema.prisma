@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode      = "prisma"
+}
+
+model User {
+  id        String    @id
+  name      String
+  email     String    @unique
+  image    String?
+  createdAt DateTime  @default(now()) @map(name: "created_at")
+  comments  Comment[]
+
+  @@map(name: "users")
+}
+
+model Post {
+  id        String    @id @default(cuid())
+  title     String
+  content   String @db.Text
+  thumbnail String?
+  slug String @unique
+  published Boolean   @default(true)
+  createdAt DateTime  @default(now()) @map(name: "created_at")
+  comments  Comment[]
+  tags      Tag[]
+
+  @@map(name: "posts")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String @db.Text
+  createdAt DateTime @default(now()) @map(name: "created_at")
+
+  postId String
+  post   Post   @relation(fields: [postId], references: [id])
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  @@map(name: "comments")
+  @@index([postId])
+  @@index([userId])
+}
+
+model Tag {
+  id    String @id @default(cuid())
+  name  String @unique
+  slug String @unique
+  posts Post[]
+
+  @@map(name: "tags")
+}
+
+model Album {
+  id        String   @id @default(cuid())
+  name      String @unique
+  slug String @unique
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  photos    Photo[]
+
+  @@map(name: "albums")
+}
+
+model Photo {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  albums    Album[]
+
+  @@map(name: "photos")
+}
