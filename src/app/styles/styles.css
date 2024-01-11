@@ -1,0 +1,9 @@
+.react-markdown {
+  p {
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    color: rgb(37 99 235);
+  }
+}
