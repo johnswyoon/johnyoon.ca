@@ -38,7 +38,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
         <div className="flex w-full max-w-[600px] items-center justify-between">
           <Tags tags={tags ?? []} />
           <div className="flex items-center gap-4 px-4">
-            <p className="m-0">{formatDate(createdAt as Date)}</p>
+            <p className="m-0 text-base">{formatDate(createdAt as Date)}</p>
             <div className="flex items-center">
               <MessageCircleMore />
               <p className="mb-0 ml-1">{comments?.length ?? 0}</p>
