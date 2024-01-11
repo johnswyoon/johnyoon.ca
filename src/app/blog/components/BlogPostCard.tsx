@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Badge } from '../../../components/ui/badge';
+import Tags from './Tags';
 
 import { formatDate } from '@/lib/utils';
 import type { Post } from '@/models';
@@ -29,15 +29,7 @@ export default function BlogPostCard({
         />
         <h2 className="mb-2 text-xl font-bold">{title}</h2>
         <div className="flex justify-between">
-          {tags && (
-            <div className="flex gap-2">
-              {tags.map((tag) => (
-                <Badge key={tag.id} className="h-7">
-                  {tag.name}
-                </Badge>
-              ))}
-            </div>
-          )}
+          <Tags tags={tags ?? []} />
           <p>{formatDate(createdAt as Date)}</p>
         </div>
       </div>
