@@ -13,6 +13,9 @@ const nunitoSans = Nunito_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'John Yoon',
   description: "John Yoon's Personal Website",
+  icons: {
+    icon: '/jy-icon.png',
+  },
 };
 
 export default function RootLayout({
