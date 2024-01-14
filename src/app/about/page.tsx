@@ -3,15 +3,16 @@ import Link from 'next/link';
 
 import MusicSection from './components/MusicSection';
 
-// import WorkExperience from '@/app/about/components/WorkExperience';
 import SocialSection from '@/app/about/components/SocialSection';
 import { PageLayout } from '@/components/PageLayout';
+
+// import WorkExperience from '@/app/about/components/WorkExperience';
 
 export default function About() {
   return (
     <PageLayout>
       <div className="grid grid-cols-1 lg:grid-cols-4">
-        <div className="col-span-1 mr-6 flex flex-col items-center">
+        <div className="col-span-1 mr-0 flex flex-col items-center lg:mr-6">
           <Image
             src="/profile.jpg"
             alt="John's Profile Picture"
@@ -25,7 +26,7 @@ export default function About() {
             <SocialSection />
           </div>
         </div>
-        <div className="col-span-3 ml-6 mt-8 flex flex-col gap-5">
+        <div className="col-span-3 ml-0 mt-0 flex flex-col gap-5 lg:ml-6 lg:mt-8">
           <h1 className="mb-4">Hi, I'm John</h1>
           <IntroParagraph />
           <MusicSection />
