@@ -90,7 +90,7 @@ export default function CommentForm({ slug }: { slug: string }) {
                 </Avatar>
               )}
             </div>
-            <div className="col-span-11 ml-2 sm:ml-0 md:col-span-10">
+            <div className="col-span-11 ml-4 min-[500px]:ml-2 sm:ml-0 md:col-span-10">
               <FormControl>
                 <Textarea
                   placeholder="Write a comment..."
