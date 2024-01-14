@@ -1,9 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
+import { ProfilePicture } from './components/FramerProfilePic';
 import MusicSection from './components/MusicSection';
 
-import SocialSection from '@/app/about/components/SocialSection';
+import SocialSection from '@/app/about/components/SocialSection/SocialSection';
 import { PageLayout } from '@/components/PageLayout';
 
 // import WorkExperience from '@/app/about/components/WorkExperience';
@@ -13,20 +13,13 @@ export default function About() {
     <PageLayout>
       <div className="grid grid-cols-1 lg:grid-cols-4">
         <div className="col-span-1 mr-0 flex flex-col items-center lg:mr-6">
-          <Image
-            src="/profile.jpg"
-            alt="John's Profile Picture"
-            className="mb-10 rounded-full"
-            style={{ boxShadow: '0 0px 50px -20px rgba(0, 0, 0, 0.5)' }}
-            height={250}
-            width={250}
-          />
+          <ProfilePicture />
           <div className="flex flex-col items-center">
             <h3 className="mb-4">Connect with me</h3>
             <SocialSection />
           </div>
         </div>
-        <div className="col-span-3 ml-0 mt-0 flex flex-col gap-5 lg:ml-6 lg:mt-8">
+        <div className="col-span-3 ml-0 mt-8 flex flex-col gap-5 lg:ml-6">
           <h1 className="mb-4">Hi, I'm John</h1>
           <IntroParagraph />
           <MusicSection />

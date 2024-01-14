@@ -32,7 +32,10 @@ export default function Album({ params }: { params: { slug: string } }) {
 
   return (
     <PageLayout className="max-w-screen-xl">
-      <h1 className="mb-10 text-center">{capitalizeString(slug)}</h1>
+      <h1 className="mb-2 text-center">{capitalizeString(slug)}</h1>
+      <p className="mb-8 text-center text-lg">
+        This page is currently under construction... 🚧
+      </p>
       <PhotoGrid images={photos} />
     </PageLayout>
   );

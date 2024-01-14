@@ -1,6 +1,7 @@
 import { Github, Instagram, Linkedin } from 'lucide-react';
-import Link from 'next/link';
 import type { ReactNode } from 'react';
+
+import SocialRow from './SocialRow';
 
 export type SocialSectionProps = {
   icon: ReactNode;
@@ -37,16 +38,5 @@ export default function SocialSection() {
         return <SocialRow key={index} {...social} />;
       })}
     </div>
-  );
-}
-
-function SocialRow({ icon, link, name }: SocialSectionProps) {
-  return (
-    <Link href={link} target="_blank" rel="noopener noreferrer">
-      <div className="mb-3 flex items-center justify-center">
-        {icon}
-        <p className="ml-2 text-xl font-light tracking-wider">{name}</p>
-      </div>
-    </Link>
   );
 }
