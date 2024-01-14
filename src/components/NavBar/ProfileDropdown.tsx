@@ -26,7 +26,9 @@ export default function ProfileDropdown() {
   if (!isSignedIn) {
     return (
       <div className="fixed right-4 top-2">
-        <Button onClick={() => openSignIn()}>Sign in</Button>
+        <Button onClick={() => openSignIn()}>
+          <p className="text-base text-white">Sign in</p>
+        </Button>
       </div>
     );
   }

@@ -42,7 +42,9 @@ function NavMenuItem({ link, title }: { link: string; title: string }) {
   return (
     <NavigationMenuItem>
       <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
-        <Link href={link}>{title}</Link>
+        <Link href={link}>
+          <p>{title}</p>
+        </Link>
       </NavigationMenuLink>
     </NavigationMenuItem>
   );
