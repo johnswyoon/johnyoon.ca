@@ -1,11 +1,39 @@
-import { PageLayout } from '@/components/PageLayout';
+import fs from 'fs';
+import path from 'path';
 
-export default async function Album({ params }: { params: { slug: string } }) {
+import PhotoGrid from '../components/PhotoGrid';
+
+import { PageLayout } from '@/components/PageLayout';
+import { capitalizeString } from '@/lib/utils';
+import { type Photo } from '@/models';
+
+export default function Album({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
+  const photoDir = path.join(process.cwd(), `public/photos/${slug}`);
+
+  const getPhotos = () => {
+    try {
+      const photos = fs.readdirSync(photoDir);
+      const formattedPhotos: Photo[] = photos.map((photo) => {
+        return {
+          alt: photo,
+          src: `/photos/${slug}/${photo}`,
+        };
+      });
+      return formattedPhotos;
+    } catch (error) {
+      console.error('Error reading photo directory:', error);
+      return [];
+    }
+  };
+
+  const photos = getPhotos();
+
   return (
-    <PageLayout className="max-w-screen-md">
-      <h1>{slug}</h1>
+    <PageLayout className="max-w-screen-xl">
+      <h1 className="mb-10 text-center">{capitalizeString(slug)}</h1>
+      <PhotoGrid images={photos} />
     </PageLayout>
   );
 }

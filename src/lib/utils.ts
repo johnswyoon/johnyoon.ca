@@ -36,3 +36,7 @@ export function getInitials(name: string) {
   }
   return '?';
 }
+
+export function capitalizeString(word: string) {
+  return word.replace(/\b\w/g, (char) => char.toUpperCase());
+}
