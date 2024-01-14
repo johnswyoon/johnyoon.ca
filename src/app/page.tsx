@@ -6,7 +6,7 @@ import { PageLayout } from '@/components/PageLayout';
 export default function Home() {
   return (
     <PageLayout className="my-auto h-full">
-      <div className="flex min-h-[85vh] flex-col items-center justify-center md:min-h-[65vh] md:flex-row">
+      <div className="flex min-h-[85vh] flex-col items-center justify-center px-5 md:min-h-[65vh] md:flex-row md:px-0">
         <div className="md:mr-10">
           <h1 className=" pb-1 text-6xl font-bold md:pb-4 md:text-7xl">
             john yoon

@@ -25,7 +25,7 @@ export default async function Photography() {
       <p className="text-center text-lg">
         This page is currently under construction... 🚧
       </p>
-      <div className="flex min-h-[70vh] flex-col items-center justify-center">
+      <div className="flex min-h-[50vh] flex-col items-center justify-center md:min-h-[60vh]">
         <div className="flex h-full flex-col items-center gap-4">
           {albums.map((album) => {
             return <PhotoMenu key={album.slug} {...album} />;
